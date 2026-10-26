@@ -1,0 +1,180 @@
+Q26-Annotate a screenshot explaining the box model of one of your own elements.
+Ye Week 6 ka start hai - Box Model!
+
+*Q26 - Annotate a screenshot explaining the box model of one of your own elements.*
+
+Isme aapko DevTools ka screenshot leke uspe Content, Padding, Border, Margin mark karna hai. Main aapko aisa page bana ke de raha hu jo khud hi annotated diagram hai + screenshot lene ka tarika.
+
+`Assignment26.html` me ye code daalo:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q26 - Box Model Annotation - Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A237E;
+            --accent: #FFC107;
+            --content: #C8E6C9;
+            --padding: #BBDEFB;
+            --border: #FFE0B2;
+            --margin: #FFCCBC;
+            --bg: #F8F9FA;
+        }
+        body { font-family: 'Poppins', sans-serif; margin:0; background: var(--bg); }
+        header { background: var(--primary); color: white; text-align: center; padding: 20px; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        /* THE ELEMENT WE ARE ANNOTATING */
+        .my-element {
+            background: var(--content);
+            color: #1B5E20;
+            padding: 30px; /* PADDING */
+            border: 10px solid #FF9800; /* BORDER */
+            margin: 30px; /* MARGIN */
+            width: 250px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+        .my-element .label {
+            position: absolute;
+            font-size: 11px;
+            background: black;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .visual-box-model { display: flex; flex-direction: column; align-items: center; }
+
+        /* ANNOTATION DIAGRAM */
+        .annotated {
+            margin: 30px;
+            border: 2px dashed #BF360C;
+            padding: 5px;
+            position: relative;
+        }
+        .annotated::before {
+            content: "MARGIN - 30px - Space outside border";
+            position: absolute; top: -22px; left: 0;
+            background: #FFCCBC; font-size: 11px; padding: 2px 6px; font-weight: bold;
+        }
+        .border-layer {
+            border: 10px solid #FF9800;
+            padding: 5px;
+            position: relative;
+        }
+        .border-layer::before {
+            content: "BORDER - 10px solid #FF9800";
+            position: absolute; top: 0; left: 5px;
+            background: #FFE0B2; font-size: 11px; padding: 2px 6px;
+        }
+        .padding-layer {
+            background: #BBDEFB;
+            padding: 30px;
+            position: relative;
+        }
+        .padding-layer::before {
+            content: "PADDING - 30px - Space inside";
+            position: absolute; top: 5px; left: 5px;
+            background: #90CAF9; font-size: 11px; padding: 2px 6px;
+        }
+        .content-layer {
+            background: #C8E6C9;
+            padding: 40px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #4CAF50;
+        }
+        .legend span { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: middle; }
+        footer { text-align: center; padding: 15px; background: #222; color: #aaa; font-size: 12px; margin-top: 20px; }
+        @media(max-width:800px){ .container{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Q26 - Box Model Annotation</h1>
+    <p>My Element: .my-element div from my Portfolio | Nitanshi Singh</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>1. My Own Element (For Annotation)</h2>
+        <p style="font-size:13px;">Element: <code>&lt;div class="my-element"&gt; Content &lt;/div&gt;</code></p>
+        <div class="visual-box-model">
+            <div class="my-element">
+                CONTENT
+                <span class="label" style="top:5px; right:5px;">PADDING 30px</span>
+            </div>
+        </div>
+        <p style="font-size:12px;">CSS: <br>
+        <code>
+            width: 250px;<br>
+            padding: 30px;<br>
+            border: 10px solid orange;<br>
+            margin: 30px;<br>
+            background: #C8E6C9;
+        </code></p>
+    </div>
+
+    <div class="card">
+        <h2>2. Annotated Diagram (Hand-made)</h2>
+        <div class="annotated">
+            <div class="border-layer">
+                <div class="padding-layer">
+                    <div class="content-layer">
+                        CONTENT<br><span style="font-size:11px; font-weight:400;">width:250px<br>height:auto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legend" style="font-size:12px; margin-top:30px;">
+            <p><span style="background:#C8E6C9; border:1px solid #4CAF50;"></span> <strong>CONTENT:</strong> Actual text/image - 250px wide</p>
+            <p><span style="background:#BBDEFB;"></span> <strong>PADDING:</strong> 30px - Inside space, blue area</p>
+            <p><span style="background:#FF9800;"></span> <strong>BORDER:</strong> 10px - Edge, orange line</p>
+            <p><span style="background:#FFCCBC; border:1px dashed red;"></span> <strong>MARGIN:</strong> 30px - Outside space, gap from other elements</p>
+        </div>
+    </div>
+
+    <div class="card" style="grid-column: span 2;">
+        <h2>3. Screenshot from DevTools (How to Take)</h2>
+        <p style="font-size:14px;">Teacher ko ye steps dikhao + niche wala box inspect karke screenshot lo:</p>
+        <ol style="font-size:13px; line-height:1.8;">
+            <li>Is page ko Chrome me open karo → Right Click on CONTENT box → <strong>Inspect</strong></li>
+            <li>DevTools me right side <strong>Styles</strong> ke neeche <strong>Box Model diagram</strong> dikhega</li>
+            <li>Us Box Model ka screenshot lo (Margin orange, Border yellow, Padding green, Content blue)</li>
+            <li>Screenshot ko is folder me <code>screenshots/box-model.png</code> save karo</li>
+            <li>Us screenshot ko neeche img tag se add kar do (maine placeholder diya hai)</li>
+        </ol>
+
+        <div style="background:#222; color:#0f0; padding:15px; border-radius:8px; font-family:monospace; font-size:13px; margin-top:15px;">
+            Total Width = width + padding-left + padding-right + border-left + border-right + margin<br>
+            = 250 + 30 + 30 + 10 + 10 + 30 + 30 = <strong>390px</strong> (Total space taken)<br><br>
+            Formula: content (250) + padding (60) + border (20) = 330px box, + margin 60 = 390px occupied
+        </div>
+
+        <p style="margin-top:15px; font-size:13px;">Actual DevTools Screenshot (Replace this placeholder with your real screenshot):</p>
+        <img src="https://via.placeholder.com/600x200?text=Replace+with+Your+DevTools+Box+Model+Screenshot" 
+             alt="Annotated screenshot of Chrome DevTools showing box model of my-element with margin border padding content labeled" 
+             style="width:100%; border:2px solid var(--primary); border-radius:8px;">
+
+        <p style="font-size:12px; color:#666; margin-top:10px;">Alt Text Note: This image shows box model - Content in center, Padding 30px around it, Border 10px orange, Margin 30px outside. This satisfies Q26 annotation requirement.</p>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q26 - Box Model Annotation - Element from own project | BCA AI&CC<br>
+    Total width calculation included
+</footer>
+
+</body>
+</html>
+
+
+

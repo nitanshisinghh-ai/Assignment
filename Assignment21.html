@@ -1,0 +1,130 @@
+Q21-Convert one HTML-only page from Week 4 into a lightly styled page.
+Ye Week 5 ka first question hai.
+
+*Q21 - Convert one HTML-only page from Week 4 into a lightly styled page.*
+
+Week 4 me aapne sirf HTML se pages banaye the (Q11-Q13 jaisa). Ab usi page me halka CSS add karna hai.
+
+Aap `Assignment21.html` me ye code daal do - Maine aapka *Week 4 ka Portfolio page ko lightly styled* me convert kar diya hai:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <meta name="description" content="Q21 - Lightly styled page converted from Week 4 HTML only page">
+    <title>Q21 - Lightly Styled Portfolio (Week 4 Converted)</title>
+    <style>
+        /* Q21 - Light Styling Added */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        header h1 { margin: 0; letter-spacing: 1px; }
+        nav {
+            background: #283593;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #c5cae9;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover { color: white; text-decoration: underline; }
+        main {
+            max-width: 800px;
+            margin: 25px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #1a237e;
+            border-left: 5px solid #1a237e;
+            padding-left: 10px;
+        }
+        figure { text-align: center; }
+        figure img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #1a237e;
+        }
+        ul {
+            background: #e8eaf6;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            background: #222;
+            color: #aaa;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        .tag {
+            background: #ffeb3b;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nitanshi Singh</h1>
+        <p>BCA AI&CC - 1st Semester | <span class="tag">Q21 Lightly Styled</span></p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <figure>
+                <img src="https://via.placeholder.com/140" alt="Profile photo of Nitanshi Singh - BCA student lightly styled version">
+                <figcaption><em>This was HTML-only in Week 4, now lightly styled in Q21</em></figcaption>
+            </figure>
+            <h2>About Me (Week 4 Page)</h2>
+            <p>In Week 4, this page had only HTML tags like h1, p, ul with no color or style. In Week 5 Q21, I have added light CSS for better readability.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>BCA AI&CC - Pursuing (2025-2029)</li>
+                <li>12th - CBSE 2024</li>
+                <li>10th - CBSE 2022</li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>What Changed in Q21?</h2>
+            <p><strong>Before (Week 4 - HTML Only):</strong> White background, black text, no spacing, no colors.</p>
+            <p><strong>After (Q21 - Lightly Styled):</strong> Added background color, header color, card design, border-radius, font-family, hover effects.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nitanshi Singh | Q21 - Week 4 HTML page converted to Lightly Styled Page</p>
+    </footer>
+
+</body>
+</html>

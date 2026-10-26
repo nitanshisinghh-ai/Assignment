@@ -1,0 +1,125 @@
+Q20-Submit the complete multi-page HTML project (Home, About, Registration, Contact).
+Your-Assignment-Folder/
+├── index.html (Home - ye hi Assignment20.html hai)
+├── about.html
+├── registration.html
+├── contact.html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nitanshi Singh - BCA AI&CC Student Portfolio Final Project Q20">
+    <meta name="author" content="Nitanshi Singh">
+    <meta name="theme-color" content="#1a237e">
+    <title>Home - Nitanshi Singh Portfolio | Final Project Q20</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f5f5f5; }
+        header { background: #1a237e; color: white; padding: 20px; text-align: center; }
+        nav { background: #222; padding: 12px; text-align: center; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ffeb3b; }
+        main { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; }
+        figure img { width: 150px; border-radius: 50%; border: 3px solid #1a237e; }
+        footer { background: #222; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nitanshi Singh</h1>
+        <p>BCA AI&CC - 1st Semester | Final Project Q20</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About / Course</a>
+        <a href="registration.html">Registration</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main>
+        <section>
+            <figure>
+                <img src="https://via.placeholder.com/150" alt="Profile photo of Nitanshi Singh - BCA student final project">
+                <figcaption>Final Project - Multi Page Site</figcaption>
+            </figure>
+            <h2>Welcome to My Portfolio</h2>
+            <p>This is my <strong>complete multi-page HTML project</strong> combining all learnings from Q1 to Q19.</p>
+            <ul>
+                <li>Semantic Tags: header, nav, main, section, footer, figure</li>
+                <li>Internal Navigation + Multi-page Navigation</li>
+                <li>Meaningful alt attributes for images</li>
+                <li>Lists, Tables, Forms, Meta Tags</li>
+            </ul>
+            <p><a href="about.html">Go to About My Course →</a></p>
+        </section>
+    </main>
+    <footer><p>&copy; 2025 Nitanshi Singh | Q20 Final Project - All Q1-Q19 Concepts Included</p></footer>
+</body>
+</html>2. FILE - about.html (New File)html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About my college and course - BCA AI&CC">
+    <title>About - My College & Course</title>
+    <style>body{font-family:Arial;margin:0}header{background:#1a237e;color:white;padding:15px;text-align:center}nav{background:#222;padding:12px;text-align:center}nav a{color:white;margin:0 15px;text-decoration:none}main{max-width:900px;margin:auto;padding:20px;background:white}footer{background:#222;color:white;text-align:center;padding:15px}</style>
+</head>
+<body>
+    <header><h1>About My College & Course</h1></header>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="registration.html">Registration</a><a href="contact.html">Contact</a></nav>
+    <main>
+        <section>
+            <h2>My Course - BCA AI&CC</h2>
+            <ul><li>Full Form: Bachelor of Computer Applications in AI & Cloud Computing</li><li>Duration: 3 Years</li><li>Sem: 1st</li></ul>
+            <h3>Subjects (Nested List)</h3>
+            <ul><li>Core<ul><li>HTML & Web</li><li>C Programming</li><li>AI Basics</li></ul></li></ul>
+            <h3>Size Chart Example (From Q18)</h3>
+            <table border="1" cellpadding="8" style="border-collapse:collapse; width:100%;"><tr><th>Size</th><th>Chest</th><th>Length</th></tr><tr><td>S</td><td>38"</td><td>27"</td></tr><tr><td>M</td><td>40"</td><td>28"</td></tr><tr><td>L</td><td>42"</td><td>29"</td></tr></table>
+        </section>
+    </main>
+    <footer>&copy; 2025 Nitanshi Singh</footer>
+</body>
+</html>3. FILE - registration.html (New File)html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Student Form</title>
+    <style>body{font-family:Arial;margin:0}header{background:#1a237e;color:white;padding:15px;text-align:center}nav{background:#222;padding:12px;text-align:center}nav a{color:white;margin:0 15px;text-decoration:none}form{max-width:600px;margin:20px auto;background:white;padding:20px;border-radius:10px}input,select,textarea{width:100%;padding:8px;margin:5px 0;border-radius:5px;border:1px solid #ccc}.btn{background:#1a237e;color:white;border:none;padding:10px;cursor:pointer}footer{background:#222;color:white;text-align:center;padding:15px}</style>
+</head>
+<body>
+    <header><h1>Student Registration</h1></header>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="registration.html">Registration</a><a href="contact.html">Contact</a></nav>
+    <form>
+        <label>Full Name (text):</label><input type="text" required placeholder="Nitanshi Singh">
+        <label>Email (email):</label><input type="email" required>
+        <label>DOB (date):</label><input type="date">
+        <label>Course (select):</label><select><option>BCA AI&CC</option><option>BCA General</option></select>
+        <label>Gender (radio):</label><input type="radio" name="g" style="width:auto;"> Male <input type="radio" name="g" style="width:auto;"> Female
+        <label>Skills (checkbox):</label><input type="checkbox" style="width:auto;"> HTML <input type="checkbox" style="width:auto;"> CSS <input type="checkbox" style="width:auto;"> Git
+        <label>Resume (file):</label><input type="file">
+        <label>Address:</label><textarea rows="3"></textarea>
+        <input type="submit" value="Register" class="btn"><input type="reset" value="Reset" class="btn" style="background:#777;">
+    </form>
+    <footer>&copy; 2025 Nitanshi Singh</footer>
+</body>
+</html>4. FILE - contact.html (New File)html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nitanshi Singh</title>
+    <style>body{font-family:Arial;margin:0}header{background:#1a237e;color:white;padding:15px;text-align:center}nav{background:#222;padding:12px;text-align:center}nav a{color:white;margin:0 15px;text-decoration:none}main{max-width:700px;margin:20px auto;background:white;padding:20px;border-radius:10px;text-align:center}footer{background:#222;color:white;text-align:center;padding:15px}</style>
+</head>
+<body>
+    <header><h1>Contact Me</h1></header>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="registration.html">Registration</a><a href="contact.html">Contact</a></nav>
+    <main>
+        <img src="https://via.placeholder.com/150?text=Contact" alt="Contact icon showing email and phone for Nitanshi Singh" style="border-radius:50%;">
+        <h2>Nitanshi Singh</h2>
+        <p>BCA AI&CC 1st Sem Student</p>
+        <p><strong>Email:</strong> nitanshisinghh.ai@gmail.com</p>
+        <p><strong>GitHub:</strong> github.com/nitanshisinghh-ai/Assignment</p>
+        <p><strong>Location:</strong> Lucknow, UP</p>
+        <hr>
+        <p>This multi-page project includes: Home, About (with Lists & Table), Registration (with Form), Contact - All interlinked with navigation and all semantic tags & meta tags from Q1-Q19.</p>
+        <p><a href="index.html">Back to Home</a></p>
+    </main>
+    <footer><p>&copy; 2025 Nitanshi Singh | Q20 - Complete Project Submitted</p></footer>
+</body>
+</html>

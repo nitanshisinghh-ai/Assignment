@@ -1,0 +1,126 @@
+Q27-Create three differently styled card variants using border-radius and backgrounds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q27 - Three Card Variants - Border Radius & Backgrounds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A237E;
+            --accent: #FFC107;
+            --bg: #F3F4F6;
+        }
+        body { font-family: 'Poppins', sans-serif; margin:0; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 20px; text-align: center; }
+        h1,h2 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1100px; margin: 30px auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; padding: 0 15px; }
+        
+        /* BASE CARD */
+        .card { padding: 25px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .card img { width: 100%; height: 150px; object-fit: cover; display: block; }
+        .card h3 { margin: 15px 0 8px; color: var(--primary); }
+        .card p { font-size: 13px; color: #555; line-height: 1.6; }
+        .card .btn { display: inline-block; margin-top: 12px; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: 600; }
+
+        /* VARIANT 1 - Rounded + Solid Background */
+        .card-1 {
+            border-radius: 16px; /* border-radius */
+            background: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-top: 6px solid var(--primary);
+        }
+        .card-1 img { border-radius: 12px; } /* image radius */
+        .card-1 .btn { background: var(--primary); color: white; }
+
+        /* VARIANT 2 - Pill Shape + Gradient Background */
+        .card-2 {
+            border-radius: 30px 10px 30px 10px; /* different radius on each corner */
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB); /* gradient background */
+            border: 2px dashed #90CAF9;
+        }
+        .card-2 img { border-radius: 20px 5px 20px 5px; }
+        .card-2 .btn { background: linear-gradient(90deg, #1A237E, #3949AB); color: white; }
+
+        /* VARIANT 3 - Circle-ish + Image Background + Glass */
+        .card-3 {
+            border-radius: 50px; /* large radius */
+            background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=400') center/cover; /* image background */
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .card-3::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(26,35,126,0.85); /* overlay for readability */
+        }
+        .card-3 * { position: relative; z-index: 1; }
+        .card-3 p { color: #E0E0E0; }
+        .card-3 img { border-radius: 50%; width: 80px; height: 80px; margin: 0 auto; border: 3px solid var(--accent); }
+        .card-3 .btn { background: var(--accent); color: #212121; }
+
+        .code-note { background: #222; color: #0f0; padding: 10px; border-radius: 8px; font-size: 11px; margin-top: 10px; font-family: monospace; }
+        footer { text-align: center; padding: 15px; background: #222; color: #aaa; font-size: 12px; margin-top: 30px; }
+        @media(max-width:900px){ .container{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Q27 - Three Card Variants</h1>
+    <p>Using border-radius & different backgrounds - Nitanshi Singh</p>
+</header>
+
+<div class="container">
+    <!-- CARD 1 -->
+    <div class="card card-1">
+        <img src="https://via.placeholder.com/300x150?text=Solid+BG+Card" alt="Card variant one showing solid white background with rounded corners">
+        <h3>Variant 1 - Solid + Rounded</h3>
+        <p>This uses solid white background and simple border-radius: 16px. Top border accent with primary color. Clean & professional for portfolio.</p>
+        <a href="#" class="btn">View Profile</a>
+        <div class="code-note">border-radius: 16px;<br>background: #FFFFFF;<br>border-top: 6px solid #1A237E;</div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card card-2">
+        <img src="https://via.placeholder.com/300x150/E3F2FD/1A237E?text=Gradient+BG+Card" alt="Card variant two with gradient background and asymmetric border radius">
+        <h3>Variant 2 - Gradient + Asymmetric</h3>
+        <p>Uses linear-gradient background and different radius on each corner: 30px 10px 30px 10px. Dashed border for creative look.</p>
+        <a href="#" class="btn">Explore</a>
+        <div class="code-note">border-radius: 30px 10px 30px 10px;<br>background: linear-gradient(135deg, #E3F2FD, #BBDEFB);</div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card card-3">
+        <img src="https://via.placeholder.com/80/FFC107/000?text=NS" alt="Card variant three with image background and circular profile picture">
+        <h3>Variant 3 - Image BG + Glass</h3>
+        <p>Background is an image with dark overlay. Heavy border-radius 50px for soft look. Profile image is fully circular (50%).</p>
+        <a href="#" class="btn">Contact Me</a>
+        <div class="code-note" style="background: rgba(0,0,0,0.6); color: #FFC107;">border-radius: 50px;<br>background: url(image) center/cover;<br>overlay: rgba(26,35,126,0.85);</div>
+    </div>
+</div>
+
+<div style="max-width:1100px; margin: 0 auto; padding: 0 15px;">
+    <div style="background: white; padding: 20px; border-radius: 12px; margin-top: 10px;">
+        <h2>Explanation for Viva (Q27)</h2>
+        <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%; font-size: 13px;">
+            <tr style="background: #1A237E; color: white;"><th>Variant</th><th>border-radius</th><th>background</th><th>Use Case</th></tr>
+            <tr><td>Card 1</td><td>16px (uniform)</td><td>Solid White + Top Border</td><td>Professional / Resume</td></tr>
+            <tr><td>Card 2</td><td>30px 10px (asymmetric)</td><td>Linear Gradient (Blue)</td><td>Creative / Feature Card</td></tr>
+            <tr><td>Card 3</td><td>50px (pill) + 50% circle img</td><td>Image Background + Overlay</td><td>Profile / Testimonial</td></tr>
+        </table>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q27 - Three Card Variants using border-radius and backgrounds | BCA AI&CC
+</footer>
+
+</body>
+</html>

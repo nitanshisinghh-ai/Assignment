@@ -1,0 +1,162 @@
+Q28-Fix a supplied page where overflow is breaking the layout.
+Samajh gaya!
+
+*Q28 - Fix a supplied page where overflow is breaking the layout.*
+
+Isme aapko dikhana hai ki pehle layout overflow ki wajah se toot raha tha, aur aapne kaise fix kiya.
+
+`Assignment28.html` me ye complete code daalo - Isme Broken + Fixed dono side by side hai:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q28 - Fix Overflow Breaking Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; margin:0; background: #f5f5f5; }
+        header { background: #1A237E; color: white; text-align: center; padding: 15px; }
+        .wrapper { max-width: 1100px; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .box { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
+        h2 { font-size: 16px; margin-top:0; }
+        .bad { border-top: 5px solid #D32F2F; }
+        .good { border-top: 5px solid #2E7D32; }
+
+        /* ===== PROBLEM 1: LONG UNBROKEN TEXT ===== */
+        .broken-text {
+            width: 100%;
+            background: #FFEBEE;
+            padding: 10px;
+            /* NO FIX - will overflow */
+            /* white-space: nowrap; causes overflow */
+        }
+        .broken-text p {
+            white-space: nowrap; /* This breaks */
+        }
+        .fixed-text {
+            width: 100%;
+            background: #E8F5E9;
+            padding: 10px;
+            /* FIXES */
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: normal;
+        }
+
+        /* ===== PROBLEM 2: IMAGE TOO BIG ===== */
+        .broken-img img {
+            width: 600px; /* Fixed big width breaks mobile */
+        }
+        .fixed-img img {
+            max-width: 100%; /* FIX */
+            height: auto;
+            display: block;
+        }
+
+        /* ===== PROBLEM 3: FLEX/GRID ITEM OVERFLOW ===== */
+        .broken-flex { display: flex; }
+        .broken-flex div { min-width: 300px; background: #FFEBEE; margin: 5px; }
+        
+        .fixed-flex { display: flex; flex-wrap: wrap; gap: 10px; } /* FIX: flex-wrap */
+        .fixed-flex div { flex: 1 1 200px; min-width: 0; background: #E8F5E9; padding: 10px; overflow: hidden; text-overflow: ellipsis; }
+
+        /* ===== UNIVERSAL FIXES ===== */
+        * { box-sizing: border-box; } /* Important fix */
+        .scroll-fix { overflow-x: auto; white-space: nowrap; } /* For tables */
+        .hidden-fix { overflow: hidden; }
+
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-size: 12px; }
+        footer { text-align: center; padding: 15px; background: #222; color: #aaa; font-size: 12px; margin-top: 20px; }
+        @media(max-width:800px){ .wrapper{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Q28 - Fix Overflow Breaking Layout</h1>
+    <p>Before (Broken) vs After (Fixed) - Nitanshi Singh</p>
+</header>
+
+<div class="wrapper">
+
+    <!-- PROBLEM 1 -->
+    <div class="box bad">
+        <h2>❌ BEFORE - Broken: Long Text Overflow</h2>
+        <div class="broken-text">
+            <p>https://thisisaveryveryverylongurlthatwillbreakthelayoutandcauseshorizontalscroll.com/assignment/thisisbroken</p>
+            <p>SupercalifragilisticexpialidociousSupercalifragilisticexpialidociousSupercalifragilisticexpialidocious</p>
+        </div>
+        <p style="font-size:11px; color:red;">Problem: <code>white-space: nowrap</code> + long word → horizontal scrollbar → layout broken</p>
+    </div>
+
+    <div class="box good">
+        <h2>✅ AFTER - Fixed: Long Text</h2>
+        <div class="fixed-text">
+            <p>https://thisisaveryveryveryverylongurlthatwillbreakthelayoutandcauseshorizontalscroll.com/assignment/thisisbroken</p>
+            <p>SupercalifragilisticexpialidociousSupercalifragilisticexpialidociousSupercalifragilisticexpialidocious</p>
+        </div>
+        <p style="font-size:11px; color:green;">Fix: <code>overflow-wrap: break-word; word-break: break-word; white-space: normal;</code></p>
+    </div>
+
+    <!-- PROBLEM 2 -->
+    <div class="box bad">
+        <h2>❌ BEFORE - Broken: Big Image</h2>
+        <div class="broken-img">
+            <img src="https://via.placeholder.com/600x150/FFCDD2/000?text=600px+Image+Breaks+Mobile+Layout" alt="Broken large image 600px wide causing overflow">
+        </div>
+        <p style="font-size:11px; color:red;">Problem: <code>width: 600px</code> fixed → mobile pe overflow</p>
+    </div>
+
+    <div class="box good">
+        <h2>✅ AFTER - Fixed: Responsive Image</h2>
+        <div class="fixed-img">
+            <img src="https://via.placeholder.com/600x150/C8E6C9/000?text=Fixed+Responsive+Image+max-width+100%25" alt="Fixed responsive image with max width 100 percent">
+        </div>
+        <p style="font-size:11px; color:green;">Fix: <code>max-width: 100%; height: auto;</code> → responsive</p>
+    </div>
+
+    <!-- PROBLEM 3 -->
+    <div class="box bad">
+        <h2>❌ BEFORE - Broken: Flex No Wrap</h2>
+        <div class="broken-flex">
+            <div>Box 1 with long content 300px</div>
+            <div>Box 2 with long content 300px</div>
+            <div>Box 3 with long content 300px</div>
+        </div>
+        <p style="font-size:11px; color:red;">Problem: <code>display: flex</code> without <code>flex-wrap</code> → items overflow outside</p>
+    </div>
+
+    <div class="box good">
+        <h2>✅ AFTER - Fixed: Flex Wrap</h2>
+        <div class="fixed-flex">
+            <div>Box 1 - flex: 1 1 200px</div>
+            <div>Box 2 - wraps on small screen</div>
+            <div>Box 3 - min-width: 0 fix</div>
+        </div>
+        <p style="font-size:11px; color:green;">Fix: <code>flex-wrap: wrap; min-width: 0; flex: 1 1 200px;</code></p>
+    </div>
+
+</div>
+
+<div style="max-width:1100px; margin: 0 auto; padding: 0 15px;">
+    <div class="box" style="border-left: 5px solid #1A237E;">
+        <h2>Q28 - My Fixes Summary (For Viva)</h2>
+        <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%; font-size: 13px;">
+            <tr style="background: #1A237E; color: white;"><th>Overflow Problem</th><th>Cause</th><th>Fix Applied</th></tr>
+            <tr><td>Long URL / Word</td><td>Unbreakable string</td><td><code>overflow-wrap: break-word; word-break: break-all;</code></td></tr>
+            <tr><td>Image breaking mobile</td><td>Fixed width 600px</td><td><code>max-width: 100%; height: auto; box-sizing: border-box;</code></td></tr>
+            <tr><td>Flex items overflow</td><td>No wrap</td><td><code>flex-wrap: wrap; min-width: 0;</code></td></tr>
+            <tr><td>Table overflow</td><td>Wide table</td><td><code>overflow-x: auto; display: block;</code> on container</td></tr>
+        </table>
+        <p style="font-size:12px; margin-top:10px;"><strong>Universal Fix:</strong> Always add <code>* { box-sizing: border-box; }</code> in CSS. This includes padding/border in width and prevents 90% overflow bugs.</p>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q28 - Fixed overflow breaking layout | BCA AI&CC<br>
+    Fixes: box-sizing, max-width 100%, overflow-wrap, flex-wrap
+</footer>
+
+</body>
+</html>

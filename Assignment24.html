@@ -1,0 +1,189 @@
+Q24-Create a small design-token stylesheet (colours, font sizes) using CSS variables
+Perfect, ye next level ka topic hai!
+
+*Q24 - Create a small design-token stylesheet (colours, font sizes) using CSS variables*
+
+Design Tokens matlab apne colors aur sizes ko variable bana ke `:root` me store karna, taaki poori website me ek jagah se control ho.
+
+Aap `Assignment24.html` me ye code daal do:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q24 - Design Token Stylesheet with CSS Variables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           Q24 - DESIGN TOKEN STYLESHEET
+           All colours, font sizes, spacing as CSS Variables
+           ========================================= */
+        :root {
+            /* -- Colours Tokens -- */
+            --color-primary: #1A237E;
+            --color-primary-light: #3949AB;
+            --color-secondary: #283593;
+            --color-accent: #FFC107;
+            --color-accent-hover: #FFB300;
+            --color-bg: #F8F9FA;
+            --color-surface: #FFFFFF;
+            --color-text-dark: #212121;
+            --color-text-light: #757575;
+            --color-border: #E0E0E0;
+            --color-success: #4CAF50;
+
+            /* -- Font Family Tokens -- */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+
+            /* -- Font Size Tokens -- */
+            --text-xs: 12px;
+            --text-sm: 14px;
+            --text-base: 16px;
+            --text-lg: 18px;
+            --text-xl: 24px;
+            --text-2xl: 32px;
+            --text-3xl: 42px;
+
+            /* -- Spacing Tokens -- */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+
+            /* -- Radius & Shadow Tokens -- */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        /* Using Tokens */
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            background: var(--color-bg);
+            color: var(--color-text-dark);
+            margin: 0;
+        }
+        h1 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: var(--color-primary);
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+        }
+        header {
+            background: var(--color-surface);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 4px solid var(--color-accent);
+        }
+        header p { color: var(--color-text-light); font-size: var(--text-sm); }
+        .container { max-width: 900px; margin: var(--space-xl) auto; padding: 0 var(--space-md); }
+        .token-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+        .card {
+            background: var(--color-surface);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+        .color-box {
+            width: 100%;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-xs);
+            font-weight: 600;
+        }
+        .btn {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+        .btn-accent { background: var(--color-accent); color: var(--color-text-dark); }
+        .btn:hover { opacity: 0.9; }
+        code { background: var(--color-bg); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--text-xs); }
+        footer { text-align: center; padding: var(--space-lg); color: var(--color-text-light); font-size: var(--text-xs); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Design Token System</h1>
+        <p>Q24 - Using CSS Variables (Custom Properties) for Colours, Font Sizes, Spacing</p>
+        <p><code>:root { --color-primary: #1A237E; --text-base: 16px; }</code></p>
+    </header>
+
+    <div class="container">
+        <div class="token-grid">
+            <div class="card">
+                <h2>1. Colour Tokens</h2>
+                <div class="color-box" style="background: var(--color-primary);">--color-primary #1A237E</div>
+                <div class="color-box" style="background: var(--color-secondary);">--color-secondary #283593</div>
+                <div class="color-box" style="background: var(--color-accent); color:#212121;">--color-accent #FFC107</div>
+                <div class="color-box" style="background: var(--color-text-light);">--color-text-light #757575</div>
+                <p style="font-size:var(--text-xs); margin-top:10px;">If we change in :root, whole site changes!</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Font Size Tokens</h2>
+                <p style="font-size: var(--text-xs);"><code>--text-xs: 12px</code> - Extra Small</p>
+                <p style="font-size: var(--text-sm);"><code>--text-sm: 14px</code> - Small</p>
+                <p style="font-size: var(--text-base);"><code>--text-base: 16px</code> - Base</p>
+                <p style="font-size: var(--text-lg);"><code>--text-lg: 18px</code> - Large</p>
+                <p style="font-size: var(--text-xl);"><code>--text-xl: 24px</code> - XL Heading</p>
+                <p style="font-size: var(--text-2xl); font-family: var(--font-heading);"><code>--text-2xl: 32px</code></p>
+                <div style="margin-top:12px;">
+                    <button class="btn">Primary Btn var(--color-primary)</button>
+                    <button class="btn btn-accent">Accent Btn</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>3. How It Works</h2>
+                <p style="font-size: var(--text-sm);">
+                    <strong>Before Q24:</strong> Har jagah direct color likhte the - <code>color: #1A237E;</code><br><br>
+                    <strong>After Q24 (Tokens):</strong> Ek jagah variable define - <code>var(--color-primary)</code><br><br>
+                    Benefit: Client bole "blue thoda light karo" to sirf :root me 1 line change, poori site update!
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>4. Spacing & Radius Tokens</h2>
+                <p style="font-size: var(--text-sm);">Spacing: --space-sm: 8px, --space-md: 16px, --space-lg: 24px</p>
+                <div style="display:flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                    <div style="background:var(--color-primary); width:40px; height:40px; border-radius: var(--radius-sm);"></div>
+                    <div style="background:var(--color-primary); width:40px; height:40px; border-radius: var(--radius-md);"></div>
+                    <div style="background:var(--color-primary); width:40px; height:40px; border-radius: var(--radius-lg);"></div>
+                </div>
+                <p style="font-size: var(--text-xs); margin-top:var(--space-sm);">--radius-sm --radius-md --radius-lg</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Nitanshi Singh | Q24 - Small Design Token Stylesheet with CSS Variables - Done<br>
+        Concepts: :root, var(--token-name), reusability, maintainability
+    </footer>
+
+</body>
+</html>

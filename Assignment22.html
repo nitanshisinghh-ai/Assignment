@@ -1,0 +1,152 @@
+Q22-Convert one HTML-only page from Week 4 into a lightly styled page.
+Same question hai jaise Q21, but teacher ne 2 baar diya hai to *dusra page* lightly styled banana hai.
+
+Q21 me maine Portfolio ko styled kiya tha.
+Q22 me *Registration Form (Week 4 ka form) ko lightly styled* karte hain.
+
+Aap `Assignment22.html` me ye code daal do:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <meta name="description" content="Q22 - Week 4 Registration Form converted to lightly styled page">
+    <title>Q22 - Lightly Styled Registration Form (Week 4)</title>
+    <style>
+        /* Q22 - Light Styling - Different from Q21 */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 550px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(13,71,161,0.15);
+            border-top: 6px solid #0d47a1;
+        }
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1.5px solid #90caf9;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #0d47a1;
+            background: #e3f2fd;
+        }
+        .row { display: flex; gap: 15px; }
+        .row div { flex: 1; }
+        .inline { width: auto !important; margin-right: 6px; }
+        .btn {
+            background: #0d47a1;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .btn:hover { background: #1565c0; }
+        .note {
+            background: #fff9c4;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-left: 4px solid #fbc02d;
+        }
+        footer { text-align: center; margin-top: 25px; color: #555; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Student Registration</h1>
+        <p>Week 4 HTML-only form → Now Q22 Lightly Styled Form</p>
+    </header>
+
+    <form>
+        <div class="note">
+            <strong>Before (Week 4):</strong> Plain inputs, no color, no spacing.<br>
+            <strong>After (Q22):</strong> Light blue theme, rounded corners, shadow, focus effect.
+        </div>
+
+        <label>Full Name (text):</label>
+        <input type="text" placeholder="e.g. Nitanshi Singh" required>
+
+        <div class="row">
+            <div>
+                <label>Email (email):</label>
+                <input type="email" placeholder="nitanshi@gmail.com" required>
+            </div>
+            <div>
+                <label>Age (number):</label>
+                <input type="number" min="16" max="30" placeholder="19">
+            </div>
+        </div>
+
+        <label>Date of Birth (date):</label>
+        <input type="date">
+
+        <label>Gender (radio):</label>
+        <input type="radio" name="gender" class="inline"> <span>Male</span>
+        <input type="radio" name="gender" class="inline"> <span>Female</span>
+        <input type="radio" name="gender" class="inline"> <span>Other</span>
+
+        <label>Course (select):</label>
+        <select>
+            <option>-- Choose Course --</option>
+            <option>BCA AI&CC</option>
+            <option>BCA General</option>
+            <option>BBA</option>
+        </select>
+
+        <label>Skills (checkbox):</label>
+        <input type="checkbox" class="inline"> HTML
+        <input type="checkbox" class="inline"> CSS
+        <input type="checkbox" class="inline"> Git & GitHub
+
+        <label>Upload Photo (file):</label>
+        <input type="file">
+
+        <label>Address (textarea):</label>
+        <textarea rows="3" placeholder="Enter your full address"></textarea>
+
+        <div class="row">
+            <input type="submit" value="Submit" class="btn">
+            <input type="reset" value="Reset" class="btn" style="background:#78909c;">
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; 2025 Nitanshi Singh | Q22 - Lightly Styled Registration Form | Different from Q21</p>
+    </footer>
+
+</body>
+</html>

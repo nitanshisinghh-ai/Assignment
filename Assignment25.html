@@ -1,0 +1,115 @@
+Q25-Submit the styled multi-page project with a short note on design choices
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <meta name="description" content="Q25 Final Styled Multi-page Project with Design Choices Note">
+    <title>Q25 - Final Styled Multi-Page Project | Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Q24 TOKENS REUSED */
+        :root {
+            --primary: #1A237E;
+            --primary-light: #3949AB;
+            --accent: #FFC107;
+            --bg: #F8F9FA;
+            --surface: #FFFFFF;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --text-sm: 14px;
+            --text-base: 16px;
+            --text-xl: 24px;
+            --text-2xl: 32px;
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        body { font-family: var(--font-body); margin:0; background:var(--bg); color:var(--text-dark); }
+        header { background: var(--primary); color: white; padding: 30px; text-align: center; }
+        header h1 { font-family: var(--font-head); font-size: var(--text-2xl); margin:0; }
+        nav { background: #222; padding: 12px; text-align: center; position: sticky; top:0; z-index:10; }
+        nav a { color: white; margin: 0 12px; text-decoration: none; font-size: var(--text-sm); font-weight: 600; }
+        nav a:hover { color: var(--accent); }
+        .container { max-width: 1000px; margin: 25px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr 350px; gap: 20px; }
+        .main { background: var(--surface); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .note { background: #FFF8E1; border-left: 5px solid var(--accent); padding: 20px; border-radius: var(--radius); }
+        h2 { font-family: var(--font-head); color: var(--primary); }
+        .page-card { border: 1px solid #e0e0e0; padding: 15px; border-radius: 10px; margin: 12px 0; display: flex; justify-content: space-between; align-items: center; }
+        .page-card a { background: var(--primary); color: white; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: var(--text-sm); }
+        .tag { background: #E8EAF6; color: var(--primary); padding: 3px 8px; border-radius: 12px; font-size: 11px; }
+        footer { text-align: center; padding: 20px; background: #222; color: #aaa; font-size: 12px; margin-top: 30px; }
+        @media(max-width:800px){ .container{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Styled Multi-Page Project</h1>
+    <p>Q25 Final Submission - Week 5 | Nitanshi Singh - BCA AI&CC</p>
+</header>
+
+<nav>
+    <a href="index.html">Home (Styled)</a>
+    <a href="about.html">About (Styled)</a>
+    <a href="registration.html">Registration (Styled)</a>
+    <a href="contact.html">Contact (Styled)</a>
+    <a href="#design-note">Design Note</a>
+</nav>
+
+<div class="container">
+    <div class="main">
+        <h2>Project Overview (Q20 → Q25)</h2>
+        <p style="font-size:14px; color:var(--text-light);">Q20 me maine HTML-only 4 pages banaye the. Week 5 (Q21-Q24) me unko styled kiya. Q25 me final styled version submit kar raha hu with design tokens.</p>
+
+        <div class="page-card">
+            <div><strong>1. index.html (Home)</strong><br><span style="font-size:12px;">Hero, About intro, Skills</span><br><span class="tag">Q21 Lightly Styled</span></div>
+            <a href="index.html">View</a>
+        </div>
+        <div class="page-card">
+            <div><strong>2. about.html</strong><br><span style="font-size:12px;">Course info, Table, Lists</span><br><span class="tag">Font Pairing + Palette</span></div>
+            <a href="about.html">View</a>
+        </div>
+        <div class="page-card">
+            <div><strong>3. registration.html</strong><br><span style="font-size:12px;">All input types with focus style</span><br><span class="tag">Q22 Lightly Styled</span></div>
+            <a href="registration.html">View</a>
+        </div>
+        <div class="page-card">
+            <div><strong>4. contact.html + resume.html</strong><br><span style="font-size:12px;">Contact + Q23 Resume</span><br><span class="tag">Q23 Restyled Resume</span></div>
+            <a href="Assignment23.html">View Resume</a>
+        </div>
+
+        <h2 id="design-note" style="margin-top:30px;">Short Note on Design Choices (Q25 Requirement)</h2>
+        <p style="font-size:13px;">Yeh note teacher ko dikhana compulsory hai -</p>
+        <ul style="font-size:14px; line-height:1.8;">
+            <li><strong>Font Pairing:</strong> Playfair Display (Serif - headings ke liye elegant) + Poppins (Sans - body ke liye readable). Ye pairing professional lagti hai aur resume/portfolio me popular hai.</li>
+            <li><strong>Color Palette:</strong> Primary #1A237E (Deep Navy - trust & knowledge), Accent #FFC107 (Amber - highlight ke liye), BG #F8F9FA (light grey - eye-friendly). High contrast, accessible.</li>
+            <li><strong>Design Tokens (Q24):</strong> :root me CSS variables banaye --primary, --text-base etc. Taaki ek jagah se pura theme control ho sake. Maintainability ke liye best practice.</li>
+            <li><strong>Light Styling:</strong> Heavy animations nahi, sirf rounded corners (12px), soft shadow, spacing. Clean & minimal rakha hai kyunki ye academic project hai.</li>
+            <li><strong>Responsive:</strong> viewport meta tag + grid + max-width 1000px, mobile par bhi sahi dikhega.</li>
+            <li><strong>Semantic + Accessibility:</strong> header, nav, main, section use kiya, har img me meaningful alt attribute diya.</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h3 style="margin-top:0;">🎨 My Design System</h3>
+        <p style="font-size:12px;"><strong>Tokens File: Assignment24.html</strong></p>
+        <code style="font-size:11px;">--primary: #1A237E<br>--accent: #FFC107<br>--font-head: Playfair<br>--font-body: Poppins<br>--text-base: 16px<br>--radius: 12px<br>--shadow: 0 8px 24px...</code>
+        <hr>
+        <h4>What I Learned (Week 4 to Week 5)</h4>
+        <p style="font-size:13px;">Week 4: Only HTML - structure<br>Week 5: CSS added - presentation<br>Q21-Q22: Light styling<br>Q23: Font & color<br>Q24: Variables/Tokens<br>Q25: Final styled multi-page + Note</p>
+        <hr>
+        <p style="font-size:12px; color: var(--text-light);">All pages are interlinked via &lt;nav&gt;. To submit, upload this file + ensure index.html, about.html, registration.html, contact.html have same :root tokens and header/nav.</p>
+        <p><strong>GitHub Link:</strong><br><span style="font-size:11px;">github.com/nitanshisinghh-ai/Assignment</span></p>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q25 Final - Styled Multi-Page Project Submitted with Design Choices Note<br>
+    BCA AI&CC 1st Sem - All Q1 to Q25 Complete
+</footer>
+
+</body>
+</html>
