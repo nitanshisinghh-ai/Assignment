@@ -1,0 +1,102 @@
+Q16-Create a student-registration form using basic input types.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q16 - Student Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; margin: 0; padding: 20px; }
+        header { text-align: center; background: #1a237e; color: white; padding: 15px; border-radius: 8px; }
+        form { background: white; max-width: 600px; margin: 20px auto; padding: 25px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        .inline { width: auto; margin-right: 10px; }
+        .btn { background: #1a237e; color: white; padding: 10px; border: none; cursor: pointer; font-size: 16px; margin-top: 20px; }
+        .btn:hover { background: #3949ab; }
+        footer { text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Student Registration Form</h1>
+        <p>BCA AI&CC - 1st Semester | Q16</p>
+    </header>
+
+    <form>
+        <!-- 1. Text -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="fullname" placeholder="Enter your full name e.g. Nitanshi Singh" required>
+
+        <!-- 2. Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="nitanshisinghh.ai@gmail.com" required>
+
+        <!-- 3. Password -->
+        <label for="password">Create Password:</label>
+        <input type="password" id="password" name="password" placeholder="Min 8 characters" required>
+
+        <!-- 4. Number -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="16" max="30" placeholder="Enter your age">
+
+        <!-- 5. Date -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+
+        <!-- 6. Tel -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit number">
+
+        <!-- 7. Radio -->
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" class="inline">
+        <label for="male" style="display:inline;">Male</label>
+        <input type="radio" id="female" name="gender" value="female" class="inline">
+        <label for="female" style="display:inline;">Female</label>
+        <input type="radio" id="other" name="gender" value="other" class="inline">
+        <label for="other" style="display:inline;">Other</label>
+
+        <!-- 8. Select -->
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            <option value="">-- Choose Course --</option>
+            <option value="bca-ai">BCA AI&CC</option>
+            <option value="bca-general">BCA General</option>
+            <option value="bba">BBA</option>
+            <option value="bcom">B.Com</option>
+        </select>
+
+        <!-- 9. Checkbox -->
+        <label>Skills (Select all that apply):</label>
+        <input type="checkbox" id="html" name="skills" value="html" class="inline">
+        <label for="html" style="display:inline;">HTML</label>
+        <input type="checkbox" id="css" name="skills" value="css" class="inline">
+        <label for="css" style="display:inline;">CSS</label>
+        <input type="checkbox" id="git" name="skills" value="git" class="inline">
+        <label for="git" style="display:inline;">Git & GitHub</label>
+
+        <!-- 10. File -->
+        <label for="photo">Upload Your Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <!-- 11. Color -->
+        <label for="color">Favorite Color:</label>
+        <input type="color" id="color" name="color" value="#1a237e">
+
+        <!-- 12. Textarea -->
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
+
+        <!-- 13. Submit & Reset -->
+        <input type="submit" value="Register" class="btn">
+        <input type="reset" value="Reset Form" class="btn" style="background: #777;">
+    </form>
+
+    <footer>
+        <p>&copy; 2025 Nitanshi Singh | Q16 - Student Registration Form with Basic Input Types - Done</p>
+    </footer>
+
+</body>
+</html>
