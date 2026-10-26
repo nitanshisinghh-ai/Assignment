@@ -1,0 +1,188 @@
+Q39-Build a responsive product grid with a header and sidebar using Grid.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q39 - Product Grid + Header + Sidebar using Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F0F2F5; }
+
+        /* ===== MAIN GRID LAYOUT WITH HEADER SIDEBAR ===== */
+        .layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            grid-template-rows: 60px 1fr 50px;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+            gap: 15px;
+            padding: 15px;
+            background: #E8EAF6;
+        }
+
+        /* Areas */
+        .header {
+            grid-area: header;
+            background: #1A237E;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            grid-area: sidebar;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 15px;
+        }
+        .main {
+            grid-area: main;
+            background: transparent;
+        }
+        .footer {
+            grid-area: footer;
+            background: #222;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        /* Sidebar Content */
+        .filter h3 { font-size: 13px; margin-bottom: 10px; color: #1A237E; }
+        .filter ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .filter li { font-size: 12px; display: flex; justify-content: space-between; cursor: pointer; color: #555; }
+        .filter li:hover { color: #1A237E; }
+        .filter li span { background: #E8EAF6; padding: 2px 6px; border-radius: 10px; font-size: 10px; }
+        .range { width: 100%; }
+
+        /* Product Grid INSIDE Main - Nested Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); }
+        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .info { padding: 12px; }
+        .info h4 { font-size: 13px; }
+        .info p { font-size: 11px; color: #777; margin: 4px 0; }
+        .price { font-weight: 700; color: #1A237E; font-size: 14px; }
+        .btn { margin-top: 8px; background: #1A237E; color: white; border: none; width: 100%; padding: 7px; border-radius: 8px; font-size: 12px; cursor: pointer; }
+
+        /* RESPONSIVE - Header Sidebar Stack */
+        @media(max-width: 800px){
+            .layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+            .sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+            .filter { flex: 1 1 150px; }
+            .products { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <!-- HEADER -->
+    <div class="header">
+        <div style="font-weight:700;">🛒 ShopEasy | Q39</div>
+        <div style="display:flex; gap:10px; align-items:center;">
+            <span style="font-size:12px;">Nitanshi Singh</span>
+            <span style="background:#FFC107; color:#000; padding:4px 10px; border-radius:20px; font-size:11px;">Grid Layout</span>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="filter">
+            <h3>Categories</h3>
+            <ul>
+                <li>All Products <span>24</span></li>
+                <li>Shoes <span>8</span></li>
+                <li>Watches <span>6</span></li>
+                <li>Bags <span>5</span></li>
+                <li>Headphones <span>5</span></li>
+            </ul>
+        </div>
+        <div class="filter">
+            <h3>Price Range</h3>
+            <input type="range" class="range" min="0" max="30000">
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:#777; margin-top:5px;"><span>₹0</span><span>₹30k</span></div>
+        </div>
+        <div class="filter">
+            <h3>Brand</h3>
+            <ul>
+                <li><label><input type="checkbox"> Nike</label></li>
+                <li><label><input type="checkbox"> Adidas</label></li>
+                <li><label><input type="checkbox"> Apple</label></li>
+                <li><label><input type="checkbox"> Sony</label></li>
+            </ul>
+        </div>
+        <div class="filter" style="background:#E8EAF6; padding:10px; border-radius:8px; font-size:11px;">
+            <b>Q39 Concept:</b><br>
+            Parent: display:grid<br>
+            grid-template-areas: "header header" "sidebar main" "footer footer"<br>
+            grid-template-columns: 240px 1fr
+        </div>
+    </div>
+
+    <!-- MAIN PRODUCT GRID -->
+    <div class="main">
+        <div style="background:white; padding:12px 15px; border-radius:12px; margin-bottom:15px; display:flex; justify-content:space-between; font-size:12px; align-items:center;">
+            <span><b>Showing 8 Products</b> - Responsive Product Grid</span>
+            <select style="padding:4px 8px; border-radius:6px; border:1px solid #ddd; font-size:12px;"><option>Sort by Price</option><option>Newest</option></select>
+        </div>
+        <div class="products">
+            <div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Nike shoes"><div class="info"><h4>Nike Air Max</h4><p>Running Shoes</p><div class="price">₹5,999</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Watch"><div class="info"><h4>Smart Watch</h4><p>Fitness Tracker</p><div class="price">₹2,999</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphone"><div class="info"><h4>Sony Headphone</h4><p>Noise Cancel</p><div class="price">₹19,999</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Bag"><div class="info"><h4>Travel Backpack</h4><p>30L Capacity</p><div class="price">₹1,499</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Sunglasses"><div class="info"><h4>Ray-Ban</h4><p>Polarized</p><div class="price">₹899</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Sneakers"><div class="info"><h4>Adidas Sneaker</h4><p>Casual Wear</p><div class="price">₹3,499</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Apple watch"><div class="info"><h4>Apple Watch SE</h4><p>GPS</p><div class="price">₹28,900</div><button class="btn">Add to Cart</button></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1525598912003-663126343e1f?w=400" alt="Laptop bag"><div class="info"><h4>Laptop Bag</h4><p>15 inch</p><div class="price">₹799</div><button class="btn">Add to Cart</button></div></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        &copy; 2025 Nitanshi Singh | Q39 - Header + Sidebar + Product Grid using CSS Grid Template Areas | BCA AI&CC
+    </div>
+</div>
+
+</body>
+</html>

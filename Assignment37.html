@@ -1,0 +1,87 @@
+Q37-Build a responsive product grid that reflows automatically.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q37 - Responsive Product Grid Auto Reflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F5F6FA; }
+        header { background: #1A237E; color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header h1 { font-size: 18px; }
+
+        /* ===== AUTO REFLOW GRID ===== */
+        .products {
+            display: grid;
+            /* KEY LINE FOR AUTO REFLOW */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+            transition: 0.25s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+        .img-box { position: relative; height: 180px; background: #eee; overflow: hidden; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .tag { position: absolute; top: 10px; left: 10px; background: #1A237E; color: white; font-size: 10px; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+        .heart { position: absolute; top: 10px; right: 10px; background: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+
+        .details { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+        .details h3 { font-size: 14px; color: #222; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .details p { font-size: 11px; color: #777; margin-bottom: 10px; }
+        .stars { color: #FFC107; font-size: 12px; margin-bottom: 8px; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .price { font-weight: 700; color: #1A237E; font-size: 16px; }
+        .price del { font-weight: 400; color: #999; font-size: 12px; margin-left: 6px; }
+        .btn { background: #1A237E; color: white; border: none; padding: 7px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; font-weight: 600; }
+
+        .note { max-width: 1200px; margin: 0 auto 20px; background: white; padding: 15px; border-radius: 10px; font-size: 12px; line-height: 1.7; border-left: 4px solid #1A237E; }
+        footer { text-align: center; padding: 12px; background: #222; color: #aaa; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ShopEasy - Auto Reflow Grid</h1>
+    <span style="font-size:11px; background:#FFC107; color:#000; padding:4px 10px; border-radius:20px;">Q37 - repeat(auto-fit, minmax)</span>
+</header>
+
+<div class="products">
+    <!-- 12 Products to show reflow -->
+    <div class="card"><div class="img-box"><span class="tag">NEW</span><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Nike shoes product image auto reflow grid"></div><div class="details"><h3>Nike Air Max 270</h3><p>Men Running Shoes</p><div class="stars">★★★★★ (4.8)</div><div class="price-row"><span class="price">₹5,999<del>₹7,999</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="tag" style="background:#D32F2F;">-20%</span><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Smart watch"></div><div class="details"><h3>Galaxy Watch 5</h3><p>Smart Fitness Watch</p><div class="stars">★★★★☆ (4.5)</div><div class="price-row"><span class="price">₹12,999<del>₹15,999</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="tag">BEST</span><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphones"></div><div class="details"><h3>Sony WH-1000XM5</h3><p>Wireless Headphones</p><div class="stars">★★★★★ (4.9)</div><div class="price-row"><span class="price">₹24,999<del>₹29,999</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Backpack"></div><div class="details"><h3>Wildcraft Backpack</h3><p>30L Travel Bag</p><div class="stars">★★★★☆ (4.3)</div><div class="price-row"><span class="price">₹1,499<del>₹2,199</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="tag" style="background:#388E3C;">TREND</span><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Sunglasses"></div><div class="details"><h3>Ray-Ban Aviator</h3><p>Polarized Sunglasses</p><div class="stars">★★★★★ (4.7)</div><div class="price-row"><span class="price">₹3,499<del>₹5,999</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Sneakers"></div><div class="details"><h3>Adidas Ultraboost</h3><p>Casual Sneakers</p><div class="stars">★★★★☆ (4.4)</div><div class="price-row"><span class="price">₹6,499<del>₹8,999</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Smartwatch"></div><div class="details"><h3>Apple Watch SE</h3><p>GPS + Cellular</p><div class="stars">★★★★★ (4.9)</div><div class="price-row"><span class="price">₹28,900<del>₹32,900</del></span><button class="btn">Add</button></div></div></div>
+    <div class="card"><div class="img-box"><span class="tag">NEW</span><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1525598912003-663126343e1f?w=400" alt="Laptop bag"></div><div class="details"><h3>Laptop Sleeve 15"</h3><p>Waterproof Protection</p><div class="stars">★★★★☆ (4.2)</div><div class="price-row"><span class="price">₹699<del>₹999</del></span><button class="btn">Add</button></div></div></div>
+</div>
+
+<div class="note">
+    <strong>Q37 Auto-Reflow Logic:</strong><br>
+    <code>grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));</code><br>
+    <b>auto-fit</b> = jitne columns fit ho sakte hai utne banao, khali jagah ko stretch karo<br>
+    <b>minmax(220px, 1fr)</b> = har card kam se kam 220px, zyada jagah ho to 1fr (equal share)<br>
+    Result: Desktop pe 5 cols, Tablet pe 3 cols, Mobile pe 1-2 cols - bina media query ke automatic reflow! Q36 se difference: Q36 photo gallery tha, Q37 e-commerce product grid hai with price, rating, button.
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q37 - Responsive Product Grid Auto Reflow | BCA AI&CC
+</footer>
+
+</body>
+</html>

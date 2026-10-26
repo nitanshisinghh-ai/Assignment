@@ -1,0 +1,103 @@
+Q31-Create a simple responsive menu bar using display:flex.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q31 - Responsive Menu Bar with Flex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f5f5f5; }
+
+        /* ===== FLEX MENU BAR ===== */
+        .navbar {
+            display: flex; /* Q31 main requirement */
+            justify-content: space-between; /* logo left, menu right */
+            align-items: center; /* vertical center */
+            background: #1A237E;
+            color: white;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap; /* responsive */
+        }
+        .logo { font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+        .logo span { background: #FFC107; color: #212121; padding: 2px 8px; border-radius: 6px; font-size: 12px; }
+
+        .menu {
+            display: flex; /* flex for menu items */
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+        .menu a { color: white; text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 20px; transition: 0.3s; }
+        .menu a:hover { background: rgba(255,255,255,0.15); color: #FFC107; }
+        .menu .active { background: #FFC107; color: #212121; font-weight: 600; }
+
+        /* Hamburger for mobile */
+        .hamburger { display: none; font-size: 22px; cursor: pointer; background: none; border: none; color: white; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .hamburger { display: block; }
+            .menu {
+                display: none; /* hidden by default */
+                flex-direction: column; /* stack vertically */
+                width: 100%;
+                background: #283593;
+                margin-top: 12px;
+                padding: 10px 0;
+                border-radius: 10px;
+            }
+            .menu.show { display: flex; } /* shown when clicked */
+            .menu li { width: 100%; text-align: center; }
+        }
+
+        .demo { max-width: 900px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; font-size: 13px; line-height: 1.7; }
+        footer { text-align: center; padding: 15px; background: #222; color: #aaa; font-size: 12px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<!-- MENU BAR START -->
+<nav class="navbar">
+    <div class="logo">Nitanshi.dev <span>BCA AI&CC</span></div>
+    
+    <button class="hamburger" onclick="document.querySelector('.menu').classList.toggle('show')">☰</button>
+
+    <ul class="menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<!-- MENU BAR END -->
+
+<div class="demo">
+    <h3>Q31 - Explanation (For Viva)</h3>
+    <p><strong>display:flex ka use:</strong></p>
+    <ul>
+        <li><code>.navbar { display: flex; justify-content: space-between; align-items: center; }</code> → Logo aur Menu ko ek line me left-right karta hai.</li>
+        <li><code>.menu { display: flex; gap: 20px; }</code> → Menu items ko horizontal line me lata hai bina float ke.</li>
+        <li><code>flex-wrap: wrap</code> → Mobile pe wrap hone deta hai, overflow nahi hota (Q28 fix).</li>
+        <li><code>flex-direction: column</code> in media query → Mobile pe menu vertical ban jata hai.</li>
+    </ul>
+    <p style="margin-top:10px;"><strong>Responsive Logic:</strong> Desktop pe flex row, Mobile pe hamburger button se menu toggle + flex column. No JavaScript framework, only 1 line JS for toggle.</p>
+    <p><strong>Test:</strong> Screen chhoti karo (Ctrl+Shift+I → mobile icon) toh menu hamburger me badal jayega.</p>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q31 - Responsive Menu Bar using display:flex | BCA AI&CC
+</footer>
+
+<script>
+    // Simple toggle, no extra library
+</script>
+
+</body>
+</html>

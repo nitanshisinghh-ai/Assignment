@@ -1,0 +1,104 @@
+Q33-Build a product-listing style layout using flex-wrap.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q33 - Product Listing using flex-wrap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F5F5; }
+        header { background: #1A237E; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        header h1 { font-size: 18px; }
+
+        /* ===== FLEX-WRAP LAYOUT ===== */
+        .product-container {
+            display: flex; /* flex */
+            flex-wrap: wrap; /* KEY PROPERTY - Q33 */
+            gap: 20px; /* space between cards */
+            justify-content: center; /* center cards */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product {
+            flex: 1 1 260px; /* grow shrink basis */
+            max-width: 320px;
+            min-width: 250px;
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+        .product:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .product img { width: 100%; height: 180px; object-fit: cover; }
+        .info { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+        .info h3 { font-size: 14px; color: #212121; margin-bottom: 5px; }
+        .info p { font-size: 12px; color: #777; margin-bottom: 10px; flex: 1; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .price { font-weight: 700; color: #1A237E; }
+        .btn { background: #1A237E; color: white; border: none; padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; }
+
+        .note { max-width: 1200px; margin: 10px auto; background: white; padding: 15px; border-radius: 10px; font-size: 12px; }
+        footer { text-align: center; padding: 12px; background: #222; color: #aaa; font-size: 11px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ShopEasy - Product Listing (flex-wrap)</h1>
+    <span style="font-size:12px; background:#FFC107; color:#000; padding:4px 10px; border-radius:20px;">Q33 - flex-wrap demo</span>
+</header>
+
+<div class="product-container">
+    <!-- 8 Products -->
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Sports shoes product listing image for flex wrap layout">
+        <div class="info"><h3>Nike Running Shoes</h3><p>Lightweight breathable shoes for daily run.</p><div class="price-row"><span class="price">₹4,999</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Smart watch product image">
+        <div class="info"><h3>Smart Watch</h3><p>Fitness tracking with heart rate monitor.</p><div class="price-row"><span class="price">₹2,499</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphones product image">
+        <div class="info"><h3>Wireless Headphones</h3><p>Noise cancellation, 30h battery.</p><div class="price-row"><span class="price">₹1,999</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Smartwatch image">
+        <div class="info"><h3>Apple Watch Style</h3><p>Premium design, AMOLED display.</p><div class="price-row"><span class="price">₹7,999</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Backpack product image">
+        <div class="info"><h3>Travel Backpack</h3><p>Waterproof, 30L capacity for travel.</p><div class="price-row"><span class="price">₹1,299</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Sunglasses product">
+        <div class="info"><h3>Polarized Sunglasses</h3><p>UV protection, stylish frame.</p><div class="price-row"><span class="price">₹899</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Running shoes">
+        <div class="info"><h3>Adidas Sneakers</h3><p>Casual wear, comfortable sole.</p><div class="price-row"><span class="price">₹3,499</span><button class="btn">Add</button></div></div>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1525598912003-663126343e1f?w=400" alt="Laptop bag">
+        <div class="info"><h3>Laptop Bag</h3><p>15 inch laptop, office use.</p><div class="price-row"><span class="price">₹799</span><button class="btn">Add</button></div></div>
+    </div>
+</div>
+
+<div class="note">
+    <strong>Q33 Explanation:</strong> Container me <code>display:flex; flex-wrap:wrap; gap:20px; justify-content:center;</code> hai. Har product ko <code>flex:1 1 260px; min-width:250px; max-width:320px;</code> diya. Isse desktop pe 3-4 cards ek line me, tablet pe 2, mobile pe 1 card apne aap wrap ho jata hai. Bina media query ke responsive - yahi flex-wrap ka power hai! Ye Q28 overflow fix bhi karta hai.
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q33 - Product Listing using flex-wrap | BCA AI&CC
+</footer>
+
+</body>
+</html>

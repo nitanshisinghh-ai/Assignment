@@ -1,0 +1,166 @@
+Q41-Add at least two breakpoints to an earlier project and test on multiple screen sizes.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q41 - Breakpoints Test | Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F0F2F5; }
+
+        /* ===== BASE LAYOUT (DESKTOP FIRST) ===== */
+        .app {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: 70px 1fr 60px;
+            grid-template-areas: "header header" "sidebar main" "footer footer";
+            min-height: 100vh;
+            gap: 15px;
+            padding: 15px;
+            background: #E8EAF6;
+        }
+        .header { grid-area: header; background: #1A237E; color: white; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .sidebar { grid-area: sidebar; background: white; border-radius: 12px; padding: 20px; }
+        .main { grid-area: main; }
+        .footer { grid-area: footer; background: #222; color: #aaa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Desktop: 4 columns */
+            gap: 15px;
+        }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.07); }
+        .card img { width: 100%; height: 160px; object-fit: cover; }
+        .card-body { padding: 12px; }
+        .card-body h4 { font-size: 13px; }
+        .card-body p { font-size: 11px; color: #777; margin: 4px 0; }
+        .price { font-weight: 700; color: #1A237E; }
+
+        /* Current breakpoint indicator */
+        .indicator {
+            position: fixed;
+            top: 80px; right: 20px;
+            background: #FFC107; color: #000;
+            padding: 6px 12px; border-radius: 20px;
+            font-size: 11px; font-weight: 700;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        /* ===== BREAKPOINT 1: TABLET (768px - 1024px) ===== */
+        @media screen and (max-width: 1024px) and (min-width: 769px) {
+            /* This is TABLET breakpoint */
+            .app {
+                grid-template-columns: 200px 1fr;
+                gap: 12px;
+                padding: 12px;
+            }
+            .products {
+                grid-template-columns: repeat(3, 1fr); /* Tablet: 3 columns */
+            }
+            .header h1 { font-size: 16px; }
+            .sidebar { padding: 15px; }
+            .indicator::after { content: " - TABLET 768-1024px (3 cols)"; }
+        }
+
+        /* ===== BREAKPOINT 2: MOBILE (max-width: 768px) ===== */
+        @media screen and (max-width: 768px) {
+            /* This is MOBILE breakpoint */
+            .app {
+                grid-template-columns: 1fr;
+                grid-template-areas: "header" "sidebar" "main" "footer";
+                gap: 10px;
+                padding: 10px;
+            }
+            .header { flex-direction: column; padding: 12px; gap: 8px; height: auto; }
+            .products {
+                grid-template-columns: repeat(2, 1fr); /* Mobile: 2 columns */
+            }
+            .sidebar { display: flex; flex-direction: row; flex-wrap: wrap; gap: 15px; }
+            .sidebar > div { flex: 1 1 140px; }
+            .indicator::after { content: " - MOBILE ≤768px (2 cols)"; }
+        }
+
+        /* ===== BREAKPOINT 3: SMALL MOBILE (max-width: 480px) - BONUS ===== */
+        @media screen and (max-width: 480px) {
+            /* This is SMALL MOBILE breakpoint - Extra */
+            .products {
+                grid-template-columns: 1fr; /* Small Mobile: 1 column */
+            }
+            .header h1 { font-size: 14px; }
+            .footer { font-size: 9px; text-align: center; padding: 10px; }
+            .indicator::after { content: " - SMALL MOBILE ≤480px (1 col)"; }
+        }
+
+        /* Default indicator for Desktop */
+        @media screen and (min-width: 1025px) {
+            .indicator::after { content: " - DESKTOP ≥1025px (4 cols)"; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="indicator">📱 BREAKPOINT ACTIVE</div>
+
+<div class="app">
+    <div class="header">
+        <h1>🛒 ShopGrid Pro - Q41 Breakpoints Test</h1>
+        <div style="display:flex; gap:10px; align-items:center; font-size:12px;">
+            <span style="background:#FFC107; color:#000; padding:4px 10px; border-radius:20px; font-weight:700;">Nitanshi Singh</span>
+            <span>Q41</span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div>
+            <h3 style="font-size:13px; color:#1A237E; margin-bottom:8px;">Breakpoints Used</h3>
+            <div style="font-size:11px; line-height:1.8; background:#F5F5F5; padding:10px; border-radius:8px;">
+                <b>1. Desktop:</b> ≥1025px → 4 columns<br>
+                <b>2. Tablet:</b> 769-1024px → 3 cols<br>
+                <b>3. Mobile:</b> ≤768px → 2 cols + stacked layout<br>
+                <b>4. Small Mobile:</b> ≤480px → 1 col (Bonus)<br><br>
+                <b>Test Method:</b> Chrome DevTools → Toggle Device Toolbar (Ctrl+Shift+M) → Resize
+            </div>
+        </div>
+        <div>
+            <h3 style="font-size:13px; color:#1A237E; margin-bottom:8px;">Earlier Project: Q40</h3>
+            <p style="font-size:11px;">Q40 ke Grid project me breakpoints add kiye. Grid-template-areas change + product columns change.</p>
+        </div>
+    </div>
+
+    <div class="main">
+        <div style="background:white; padding:10px 14px; border-radius:10px; margin-bottom:12px; font-size:12px; display:flex; justify-content:space-between;">
+            <b>Responsive Product Grid - Resize Window to Test</b>
+            <span style="font-size:10px; background:#E8EAF6; padding:3px 8px; border-radius:10px;">8 Products</span>
+        </div>
+        <div class="products">
+            <div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Product"><div class="card-body"><h4>Nike Air Max</h4><p>Running Shoes</p><div class="price">₹5,999</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Product"><div class="card-body"><h4>Sony Headphone</h4><p>Wireless</p><div class="price">₹19,999</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Product"><div class="card-body"><h4>Smart Watch</h4><p>Fitness</p><div class="price">₹2,999</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Product"><div class="card-body"><h4>Backpack</h4><p>Travel Bag</p><div class="price">₹1,499</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Product"><div class="card-body"><h4>Ray-Ban</h4><p>Sunglasses</p><div class="price">₹899</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Product"><div class="card-body"><h4>Adidas Sneaker</h4><p>Casual</p><div class="price">₹3,499</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Product"><div class="card-body"><h4>Apple Watch</h4><p>GPS</p><div class="price">₹28,900</div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1525598912003-663126343e1f?w=400" alt="Product"><div class="card-body"><h4>Laptop Bag</h4><p>Office Use</p><div class="price">₹799</div></div></div>
+        </div>
+
+        <div style="margin-top:15px; background:white; padding:12px; border-radius:10px; font-size:11px; line-height:1.7;">
+            <b>Q41 Testing Proof:</b><br>
+            1. Desktop (≥1025px): Header + Sidebar + 4-col products - Screenshot 1<br>
+            2. Tablet (768-1024px): Narrow sidebar + 3-col - Screenshot 2<br>
+            3. Mobile (≤768px): Stacked layout, sidebar horizontal, 2-col - Screenshot 3<br>
+            4. Small Mobile (≤480px): 1-col full width - Screenshot 4<br>
+            <i>Use Chrome: F12 → Device Toolbar → Select iPhone SE, iPad, Desktop</i>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Nitanshi Singh | Q41 - 3 Breakpoints Added to Q40 Project | @media (max-width:1024px) (max-width:768px) (max-width:480px) | BCA AI&CC
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+Q40-Submit the finished Grid-based project.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q40 - Finished Grid Based Project | Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #EEF2F7; color: #222; }
+
+        /* ===== Q40 FINAL GRID TEMPLATE AREAS ===== */
+        .app {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: 70px 1fr 60px;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        /* HEADER - Q39 */
+        .header {
+            grid-area: header;
+            background: linear-gradient(135deg, #1A237E, #283593);
+            color: white;
+            border-radius: 14px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            align-items: center;
+            padding: 0 20px;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(26,35,126,0.3);
+        }
+        .header h1 { font-size: 18px; }
+        .header h1 span { background: #FFC107; color: #000; padding: 2px 8px; border-radius: 6px; font-size: 11px; }
+        .search { background: rgba(255,255,255,0.15); border: none; padding: 9px 15px; border-radius: 20px; color: white; width: 260px; }
+        .search::placeholder { color: rgba(255,255,255,0.7); }
+
+        /* SIDEBAR - Q39 */
+        .sidebar {
+            grid-area: sidebar;
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 22px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            align-content: start;
+        }
+        .sidebar h3 { font-size: 13px; color: #1A237E; margin-bottom: 10px; }
+        .nav { list-style: none; display: grid; gap: 6px; }
+        .nav li { padding: 10px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; display: flex; gap: 10px; align-items: center; }
+        .nav li.active { background: #E8EAF6; color: #1A237E; font-weight: 600; }
+        .filter-box { display: grid; gap: 8px; }
+        .chip { display: inline-block; background: #F5F5F5; padding: 6px 10px; border-radius: 20px; font-size: 11px; cursor: pointer; border: 1px solid #eee; }
+        .chip.active { background: #1A237E; color: white; }
+
+        /* MAIN - Q36 + Q37 + Q38 COMBINED */
+        .main {
+            grid-area: main;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 16px;
+        }
+        .top-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+        .stat { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stat b { font-size: 22px; color: #1A237E; display: block; }
+        .stat span { font-size: 11px; color: #777; }
+
+        /* PRODUCT GRID - Q38 AUTO REFLOW */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            align-content: start;
+        }
+        .card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-rows: 160px auto;
+            transition: 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card-body { padding: 12px; display: grid; gap: 6px; }
+        .card-body h4 { font-size: 13px; }
+        .card-body p { font-size: 11px; color: #777; }
+        .card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+        .price { font-weight: 700; color: #1A237E; }
+        .btn { background: #1A237E; color: white; border: none; padding: 6px 12px; border-radius: 20px; font-size: 11px; cursor: pointer; }
+
+        /* FOOTER */
+        .footer {
+            grid-area: footer;
+            background: #1A1A1A;
+            color: #aaa;
+            border-radius: 14px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 11px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px){
+            .app { grid-template-columns: 1fr; grid-template-areas: "header" "sidebar" "main" "footer"; }
+            .header { grid-template-columns: 1fr; padding: 12px 15px; height: auto; gap: 8px; }
+            .search { width: 100%; }
+            .sidebar { grid-template-columns: 1fr 1fr; }
+            .top-stats { grid-template-columns: repeat(2, 1fr); }
+            .products { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .footer { grid-template-columns: 1fr; text-align: center; gap: 5px; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app">
+    <!-- HEADER -->
+    <header class="header">
+        <h1>ShopGrid Pro <span>Q40 FINAL</span></h1>
+        <input type="search" class="search" placeholder="Search products...">
+        <div style="display:flex; gap:10px; align-items:center; font-size:12px;">
+            <span>🔔</span><span>🛒 3</span><span style="background:white; color:#1A237E; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">NS</span>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div>
+            <h3>Navigation (Q39)</h3>
+            <ul class="nav">
+                <li class="active">📦 All Products</li>
+                <li>👟 Shoes - Q37</li>
+                <li>⌚ Watches - Q38</li>
+                <li>🖼️ Gallery - Q36</li>
+                <li>⭐ Wishlist</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Filters</h3>
+            <div class="filter-box">
+                <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                    <span class="chip active">All</span><span class="chip">Under ₹1k</span><span class="chip">Trending</span><span class="chip">New</span>
+                </div>
+                <label style="font-size:11px; margin-top:8px;">Price: ₹0 - ₹30,000</label>
+                <input type="range" style="width:100%;">
+            </div>
+        </div>
+        <div>
+            <h3>Q36-Q40 Summary</h3>
+            <div style="font-size:11px; line-height:1.7; background:#F8F9FA; padding:10px; border-radius:8px;">
+                Q36: Gallery grid<br>
+                Q37/Q38: auto-fit/fill reflow<br>
+                Q39: header+sidebar+grid areas<br>
+                Q40: Full project combine
+            </div>
+        </div>
+        <div style="background:#1A237E; color:white; padding:12px; border-radius:10px; font-size:11px;">
+            <b>Nitanshi Singh</b><br>BCA AI&CC<br>Week 8 - Grid Module Complete<br>2025
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+        <div class="top-stats">
+            <div class="stat"><b>24</b><span>Total Products (Q38)</span></div>
+            <div class="stat"><b>8</b><span>Categories (Q37)</span></div>
+            <div class="stat"><b>4</b><span>Grid Concepts (Q36-39)</span></div>
+            <div class="stat"><b>100%</b><span>Responsive Grid</span></div>
+        </div>
+
+        <div class="products">
+            <div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Product"><div class="card-body"><h4>Nike Air Max 270</h4><p>Q37 Product Grid - auto-fit</p><div class="card-foot"><span class="price">₹5,999</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Product"><div class="card-body"><h4>Sony WH-1000XM5</h4><p>Q38 Reflow Grid - auto-fill</p><div class="card-foot"><span class="price">₹19,999</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Product"><div class="card-body"><h4>Galaxy Watch 5</h4><p>Q39 Sidebar + Grid</p><div class="card-foot"><span class="price">₹12,999</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" alt="Product"><div class="card-body"><h4>Mountain Gallery</h4><p>Q36 Photo Gallery Grid</p><div class="card-foot"><span class="price">Gallery</span><button class="btn">View</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Product"><div class="card-body"><h4>Wildcraft Backpack</h4><p>Q37 Auto Reflow</p><div class="card-foot"><span class="price">₹1,499</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Product"><div class="card-body"><h4>Apple Watch SE</h4><p>Q40 Final Grid Project</p><div class="card-foot"><span class="price">₹28,900</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Product"><div class="card-body"><h4>Adidas Sneakers</h4><p>Responsive Grid Item</p><div class="card-foot"><span class="price">₹3,499</span><button class="btn">Add</button></div></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Product"><div class="card-body"><h4>Ray-Ban Aviator</h4><p>Final Submission Q40</p><div class="card-foot"><span class="price">₹899</span><button class="btn">Add</button></div></div></div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>&copy; 2025 Nitanshi Singh | Q40 Finished Grid Project | Combines Q36 Photo Gallery + Q37/Q38 Auto Reflow + Q39 Header Sidebar | BCA AI&CC</span>
+        <span>display:grid | grid-template-areas | auto-fit | auto-fill</span>
+    </footer>
+</div>
+
+</body>
+</html>

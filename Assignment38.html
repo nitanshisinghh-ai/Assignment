@@ -1,0 +1,78 @@
+Q38-Build a responsive product grid that reflows automatically.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q38 - Auto Reflow Product Grid (auto-fill)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FAFAFA; }
+        header { background: #1A237E; color: white; padding: 16px; text-align: center; }
+        header h1 { font-size: 18px; }
+        header code { background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 5px; font-size: 11px; }
+
+        /* ===== Q38 KEY GRID ===== */
+        .grid {
+            display: grid;
+            /* AUTO-REFLOW - auto-fill vs auto-fit difference */
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+            padding: 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.2s;
+        }
+        .product:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .product img { width: 100%; height: 190px; object-fit: cover; }
+        .body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+        .body h3 { font-size: 14px; }
+        .body .desc { font-size: 11px; color: #777; margin: 5px 0 10px; flex: 1; }
+        .bottom { display: flex; justify-content: space-between; align-items: center; }
+        .price { font-weight: 700; color: #1A237E; }
+        .btn { background: #FFC107; border: none; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 11px; cursor: pointer; }
+
+        .info-box { max-width: 1150px; margin: 0 auto 20px; background: white; padding: 14px; border-radius: 10px; font-size: 11px; line-height: 1.6; border-left: 4px solid #FFC107; }
+        footer { text-align: center; padding: 10px; background: #222; color: #aaa; font-size: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Q38 - Responsive Product Grid Auto Reflow</h1>
+    <code>display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:18px;</code>
+</header>
+
+<div class="grid">
+    <div class="product"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Shoes"><div class="body"><h3>Nike Shoes</h3><div class="desc">Lightweight running shoes for men, breathable mesh</div><div class="bottom"><span class="price">₹4,999</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphone"><div class="body"><h3>Headphone</h3><div class="desc">Wireless bluetooth, 40h battery life</div><div class="bottom"><span class="price">₹1,999</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Watch"><div class="body"><h3>Smart Watch</h3><div class="desc">Heart rate, SpO2, fitness tracking</div><div class="bottom"><span class="price">₹3,499</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Bag"><div class="body"><h3>Backpack</h3><div class="desc">30L waterproof backpack for travel</div><div class="bottom"><span class="price">₹1,299</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Sneakers"><div class="body"><h3>Sneakers</h3><div class="desc">Casual everyday sneakers comfortable</div><div class="bottom"><span class="price">₹2,799</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Sunglass"><div class="body"><h3>Sunglasses</h3><div class="desc">UV 400 polarized sunglasses</div><div class="bottom"><span class="price">₹899</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Watch 2"><div class="body"><h3>Watch Series</h3><div class="desc">AMOLED display smartwatch</div><div class="bottom"><span class="price">₹7,999</span><button class="btn">Buy</button></div></div></div>
+    <div class="product"><img src="https://images.unsplash.com/photo-1525598912003-663126343e1f?w=400" alt="Laptop bag"><div class="body"><h3>Laptop Bag</h3><div class="desc">15.6 inch office laptop bag</div><div class="bottom"><span class="price">₹749</span><button class="btn">Buy</button></div></div></div>
+</div>
+
+<div class="info-box">
+    <b>Q38 Viva - auto-fill vs auto-fit:</b><br>
+    <code>auto-fill</code> = khali tracks bhi bana deta hai (grid lines reserve), <code>auto-fit</code> = khali jagah ko collapse karke items ko stretch kar deta hai. Dono se reflow hota hai bina media query ke. Resize karke dekho - automatically columns 4 se 3 se 2 se 1 ho jayenge. Ye pure CSS Grid ka power hai, Flex-wrap se better 2D control!
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q38 - Responsive Product Grid Auto Reflow (auto-fill) | BCA AI&CC
+</footer>
+
+</body>
+</html>

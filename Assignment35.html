@@ -1,0 +1,156 @@
+Q35-Build a responsive Navbar + Hero section using Flexbox
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q35 - Final Responsive Navbar + Hero using Flexbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F8F9FA; }
+        :root { --primary:#1A237E; --accent:#FFC107; }
+
+        /* ===== Q31 + Q34 = NAVBAR FLEX ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary); font-size: 18px; }
+        .logo-dot { width: 32px; height: 32px; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 14px; }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+        }
+        .menu a { text-decoration: none; color: #333; font-size: 14px; font-weight: 500; transition: 0.2s; }
+        .menu a:hover { color: var(--primary); }
+        .btn-nav { background: var(--primary); color: white !important; padding: 9px 20px; border-radius: 25px; }
+        .hamburger { display: none; border: none; background: none; font-size: 24px; cursor: pointer; }
+
+        /* ===== Q32 + Q34 = HERO FLEX PERFECT CENTER ===== */
+        .hero-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #E8EAF6 0%, #FFFFFF 60%);
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            width: 100%;
+            gap: 40px;
+        }
+        .hero-left {
+            flex: 1 1 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .badge { background: var(--accent); color: #212121; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; width: fit-content; }
+        .hero-left h1 { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.1; color: var(--primary); }
+        .hero-left h1 span { color: #FF8F00; }
+        .hero-left p { color: #666; font-size: 15px; line-height: 1.7; }
+        
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .btn { padding: 13px 26px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+
+        .stats { display: flex; gap: 30px; margin-top: 15px; }
+        .stats b { font-size: 20px; color: var(--primary); display: block; }
+        .stats span { font-size: 11px; color: #888; }
+
+        .hero-right {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-right img { width: 100%; max-width: 480px; border-radius: 24px; box-shadow: 0 20px 60px rgba(26,35,126,0.2); }
+        .card-float {
+            position: absolute;
+            bottom: 10px; left: 10px;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            display: flex; gap: 10px; align-items: center;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        @media(max-width: 768px){
+            .hamburger { display: block; }
+            .menu { display: none; flex-direction: column; width: 100%; margin-top: 15px; background: #f1f3f4; padding: 15px; border-radius: 12px; }
+            .menu.show { display: flex; }
+            .hero-left h1 { font-size: 32px; }
+            .hero-wrapper { min-height: auto; padding: 30px 20px; }
+        }
+        footer { text-align: center; padding: 15px; background: #222; color: #aaa; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo"><div class="logo-dot">NS</div> Nitanshi Singh</div>
+    <button class="hamburger" onclick="document.querySelector('.menu').classList.toggle('show')">☰</button>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Q31-Q34</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#" class="btn-nav">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero-wrapper">
+    <section class="hero">
+        <div class="hero-left">
+            <span class="badge">Q35 FINAL - WEEK 7 COMPLETE</span>
+            <h1>Responsive <span>Navbar + Hero</span> Using Flexbox Only</h1>
+            <p>Hello! I am Nitanshi Singh, BCA AI&CC. This is my final flexbox project combining Q31 menu, Q32 perfect center, Q33 flex-wrap and Q34 hero. 100% responsive with flex.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary">View All Q1-Q35</a>
+                <a href="#" class="btn btn-outline">GitHub</a>
+            </div>
+            <div class="stats">
+                <div><b>Q31-Q35</b><span>Flexbox Module</span></div>
+                <div><b>100%</b><span>Responsive</span></div>
+                <div><b>0 Float</b><span>Only Flex</span></div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700" alt="Laptop with code representing responsive navbar and hero section built with flexbox">
+            <div class="card-float">
+                <div style="width:36px; height:36px; background:#1A237E; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">✓</div>
+                <div><strong>Flexbox Mastered</strong><br><span style="color:#777;">display:flex + flex-wrap + justify-content</span></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q35 - Final Responsive Navbar + Hero using Flexbox | Week 7 (Q31-Q35) Complete | BCA AI&CC<br>
+    Concepts: .navbar{display:flex; justify-content:space-between} .hero{display:flex; flex-wrap:wrap} .wrapper{display:flex; justify-content:center; align-items:center}
+</footer>
+
+</body>
+</html>

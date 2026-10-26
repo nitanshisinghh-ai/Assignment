@@ -1,0 +1,165 @@
+Q42-Audit and fix responsiveness issues in one earlier project
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q42 - Audit & Fix Responsiveness | Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== AUDIT REPORT - COMMON ISSUES IN EARLIER PROJECTS =====
+           Issue 1: Fixed width (e.g., width: 400px) - overflow on mobile
+           Issue 2: No viewport meta - scaling broken
+           Issue 3: No flex-wrap - items overflow
+           Issue 4: Images not responsive (no max-width:100%)
+           Issue 5: Font size fixed in px - not scaling
+           Issue 6: No media queries
+           Fix: Added below...
+        */
+
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F8F9FA; line-height: 1.5; }
+
+        /* FIXED HEADER */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap; /* FIX 1: Added flex-wrap */
+            gap: 10px;
+        }
+        .logo { font-weight: 700; color: #1A237E; }
+        .menu { display: flex; gap: 18px; list-style: none; align-items: center; flex-wrap: wrap; }
+        .menu a { text-decoration: none; color: #333; font-size: 14px; }
+        .menu a.cta { background: #1A237E; color: white; padding: 8px 16px; border-radius: 20px; }
+        .hamburger { display: none; border: none; background: none; font-size: 22px; cursor: pointer; }
+
+        /* FIXED HERO - BEFORE: fixed 500px width image overflowed */
+        .hero {
+            display: flex;
+            flex-wrap: wrap; /* FIX 2 */
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px; /* FIX 3: max-width instead of width */
+            width: 100%; /* FIX 4: width 100% */
+            margin: 0 auto;
+            padding: 20px;
+            gap: 30px;
+            min-height: 80vh;
+        }
+        .hero-text {
+            flex: 1 1 320px; /* FIX 5: flex-basis 320px not 500px, allows shrink */
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        /* FIX 6: Responsive typography using clamp */
+        .hero-text h1 { font-size: clamp(24px, 5vw, 44px); color: #1A237E; line-height: 1.2; }
+        .hero-text p { font-size: clamp(13px, 2vw, 15px); color: #666; }
+
+        .hero-img {
+            flex: 1 1 300px; /* FIX 7 */
+            display: flex;
+            justify-content: center;
+        }
+        .hero-img img {
+            width: 100%; /* FIX 8 */
+            max-width: 450px; /* FIX 9: max-width */
+            height: auto; /* FIX 10: maintain aspect ratio */
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { padding: 10px 20px; border-radius: 25px; text-decoration: none; font-size: 13px; font-weight: 600; }
+        .btn-primary { background: #1A237E; color: white; }
+        .btn-outline { border: 2px solid #1A237E; color: #1A237E; }
+
+        /* ===== AUDIT TABLE ===== */
+        .audit { max-width: 1100px; margin: 20px auto; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+        .audit h2 { font-size: 16px; color: #1A237E; margin-bottom: 12px; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th, td { border: 1px solid #e0e0e0; padding: 8px 10px; text-align: left; }
+        th { background: #E8EAF6; color: #1A237E; }
+        td:nth-child(3) { color: #2E7D32; font-weight: 600; }
+        .tag { padding: 2px 6px; border-radius: 4px; font-size: 10px; }
+        .bad { background: #FFEBEE; color: #C62828; }
+        .good { background: #E8F5E9; color: #2E7D32; }
+
+        /* ===== RESPONSIVE FIXES - MEDIA QUERIES ===== */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .menu { display: none; width: 100%; flex-direction: column; background: #f5f5f5; padding: 12px; border-radius: 10px; margin-top: 8px; }
+            .menu.show { display: flex; }
+            .hero { padding: 15px; gap: 20px; min-height: auto; }
+            .btns { justify-content: center; }
+            .hero-text { text-align: center; align-items: center; }
+            table { font-size: 11px; }
+        }
+        @media (max-width: 480px) {
+            .navbar { padding: 10px 14px; }
+            .hero-img img { max-width: 100%; }
+            th, td { padding: 6px; }
+        }
+
+        footer { text-align: center; padding: 12px; background: #222; color: #aaa; font-size: 11px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">NS.dev | Q42 Audit</div>
+    <button class="hamburger" onclick="document.querySelector('.menu').classList.toggle('show')">☰</button>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Q34 Old</a></li>
+        <li><a href="#">Q42 Fixed</a></li>
+        <li><a href="#" class="cta">Fixed ✓</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <span style="background:#FFC107; padding:4px 10px; border-radius:20px; font-size:10px; width:fit-content; font-weight:700;">Q42 - AUDITED & FIXED VERSION OF Q34</span>
+        <h1>Fixed Responsive Navbar + Hero</h1>
+        <p>Earlier project Q34 had overflow on mobile due to fixed widths and missing flex-wrap. In Q42 I fixed with max-width:100%, flex-wrap, clamp() fonts, and 2 breakpoints.</p>
+        <div class="btns">
+            <a href="#" class="btn btn-primary">View Fixes Below</a>
+            <a href="#" class="btn btn-outline">Before vs After</a>
+        </div>
+    </div>
+    <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Laptop showing fixed responsive layout">
+    </div>
+</section>
+
+<div class="audit">
+    <h2>Q42 Audit Report - Earlier Project (Q34) vs Fixed Version</h2>
+    <table>
+        <tr><th>#</th><th>Issue Found (Audit)</th><th>Fix Applied</th><th>Status</th></tr>
+        <tr><td>1</td><td>Header had no flex-wrap → menu overflowed on small screen <span class="tag bad">overflow</span></td><td>Added <code>flex-wrap:wrap; gap:10px;</code> + hamburger menu</td><td><span class="tag good">FIXED</span></td></tr>
+        <tr><td>2</td><td>Hero image fixed width 500px → horizontal scroll on mobile <span class="tag bad">scroll</span></td><td>Changed to <code>width:100%; max-width:450px; height:auto;</code></td><td><span class="tag good">FIXED</span></td></tr>
+        <tr><td>3</td><td>Hero columns fixed 500px basis, no shrink → not stacking <span class="tag bad">layout break</span></td><td>Used <code>flex:1 1 320px</code> + <code>flex-wrap:wrap</code> + max-width:1100px container</td><td><span class="tag good">FIXED</span></td></tr>
+        <tr><td>4</td><td>Font size 42px fixed → too big on mobile <span class="tag bad">text overflow</span></td><td>Used <code>font-size: clamp(24px,5vw,44px)</code> responsive typography</td><td><span class="tag good">FIXED</span></td></tr>
+        <tr><td>5</td><td>Missing viewport meta causes zoom issue <span class="tag bad">no meta</span></td><td>Added <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></td><td><span class="tag good">FIXED</span></td></tr>
+        <tr><td>6</td><td>No breakpoints tested <span class="tag bad">not tested</span></td><td>Added 2 breakpoints: 768px (tablet) and 480px (mobile) + tested via DevTools</td><td><span class="tag good">FIXED</span></td></tr>
+    </table>
+    <div style="margin-top:12px; font-size:11px; background:#E8F5E9; padding:10px; border-radius:8px; border-left:4px solid #2E7D32;">
+        <b>Result:</b> Earlier project had 6 responsiveness issues. After fix: No horizontal scroll, image scales, text scales, menu collapses to hamburger, layout stacks vertically on mobile. Tested on 320px, 768px, 1024px, 1440px - all pass.
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Nitanshi Singh | Q42 - Audit and fix responsiveness issues in Q34 | Fixed: flex-wrap, max-width, clamp(), hamburger, breakpoints | BCA AI&CC
+</footer>
+
+</body>
+</html>

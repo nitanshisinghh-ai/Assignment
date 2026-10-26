@@ -1,0 +1,151 @@
+Q44-Push the landing-page HTML skeleton and base desktop styles.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nitanshi Singh">
+    <title>Q44 - Landing Page Skeleton + Desktop Base | Nitanshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Q44 - BASE DESKTOP STYLES ONLY - NO MEDIA QUERY YET ===== */
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: #222; }
+
+        /* DESKTOP CONTAINER */
+        .container { width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER - Desktop Flex */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        .logo { font-size: 22px; font-weight: 700; color: #1A237E; display: flex; align-items: center; gap: 8px; }
+        .logo span { background: #1A237E; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #333; font-size: 15px; font-weight: 500; }
+        nav ul li a.btn-nav { background: #1A237E; color: white; padding: 10px 22px; border-radius: 30px; }
+
+        /* HERO - Desktop Grid */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            padding: 80px 0;
+            min-height: 600px;
+        }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 52px; line-height: 1.1; color: #1A237E; }
+        .hero-text h1 span { color: #FF8F00; }
+        .hero-text p { font-size: 16px; color: #666; margin: 18px 0 25px; line-height: 1.6; }
+        .hero-btns { display: flex; gap: 15px; }
+        .btn { padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; }
+        .btn-primary { background: #1A237E; color: white; }
+        .btn-secondary { border: 2px solid #1A237E; color: #1A237E; }
+
+        .hero-img img { width: 100%; height: 420px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(26,35,126,0.2); }
+
+        /* FEATURES - Desktop Grid 3 cols */
+        .features { padding: 70px 0; background: #F8F9FF; }
+        .features h2 { text-align: center; font-size: 32px; color: #1A237E; margin-bottom: 10px; }
+        .features .sub { text-align: center; color: #777; margin-bottom: 40px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .f-card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.06); border: 1px solid #eee; }
+        .f-icon { width: 50px; height: 50px; background: #E8EAF6; color: #1A237E; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; }
+        .f-card h3 { font-size: 17px; margin-bottom: 8px; }
+        .f-card p { font-size: 13px; color: #666; line-height: 1.5; }
+
+        /* CTA */
+        .cta-section { background: #1A237E; color: white; padding: 70px 0; text-align: center; }
+        .cta-section h2 { font-size: 36px; margin-bottom: 15px; }
+        .cta-section p { opacity: 0.8; margin-bottom: 25px; }
+
+        /* FOOTER - Desktop Grid */
+        footer { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; padding: 50px 0; background: #111; color: #aaa; }
+        footer h4 { color: white; margin-bottom: 12px; }
+        footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+
+        .bottom { background: #000; color: #666; text-align: center; padding: 15px; font-size: 12px; }
+        
+        /* NOTE FOR Q44 */
+        .q44-note { background: #FFF8E1; border: 2px dashed #FFC107; padding: 15px; border-radius: 10px; margin: 20px auto; max-width: 1200px; font-size: 12px; line-height: 1.7; }
+    </style>
+</head>
+<body>
+
+<!-- Q44 NOTE -->
+<div class="q44-note">
+    <b>Q44 Submission Note: Landing Page HTML Skeleton + Base Desktop Styles</b><br>
+    This is Step 1 of landing page project. Only desktop styles (1200px container). No responsive media queries yet. Structure: Header (flex) + Hero (grid 2-col) + Features (grid 3-col) + CTA + Footer (grid 4-col). Desktop first approach. Next Q45 onwards will add tablet/mobile breakpoints.
+</div>
+
+<!-- HEADER SKELETON -->
+<header class="container">
+    <div class="logo"><span>NS</span> ShopGrid</div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" class="btn-nav">Get Started - Q44</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO SKELETON -->
+<section class="hero container">
+    <div class="hero-text">
+        <h1>Modern <span>Landing Page</span> Skeleton for Desktop</h1>
+        <p>Hi, I am Nitanshi Singh, BCA AI&CC. This is Q44 - HTML skeleton with base desktop styles. Fixed 1200px container, grid and flex for desktop only. Responsive will be added in Q45.</p>
+        <div class="hero-btns">
+            <a href="#" class="btn btn-primary">Desktop Base Ready</a>
+            <a href="#" class="btn btn-secondary">1200px Layout</a>
+        </div>
+    </div>
+    <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="Desktop landing hero">
+    </div>
+</section>
+
+<!-- FEATURES SKELETON -->
+<section class="features">
+    <div class="container">
+        <h2>Base Desktop Features Grid</h2>
+        <p class="sub">3 columns on desktop - Q44 skeleton</p>
+        <div class="feature-grid">
+            <div class="f-card"><div class="f-icon">🖥️</div><h3>Desktop First</h3><p>1200px fixed container, 80px header, 52px heading - base styles for large screens.</p></div>
+            <div class="f-card"><div class="f-icon">📐</div><h3>Grid Structure</h3><p>Hero: grid-template-columns 1fr 1fr, Features: repeat(3,1fr), Footer: 2fr 1fr 1fr 1fr</p></div>
+            <div class="f-card"><div class="f-icon">🎯</div><h3>Skeleton Only</h3><p>Only HTML structure + desktop CSS. No @media queries yet, will be added in Q45-Q50.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SKELETON -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Q44 - Skeleton Pushed</h2>
+        <p>Landing page base ready for desktop - 1200px width</p>
+        <a href="#" class="btn btn-primary" style="background:white; color:#1A237E;">Next: Add Responsive</a>
+    </div>
+</section>
+
+<!-- FOOTER SKELETON -->
+<footer>
+    <div class="container" style="display:contents;">
+        <div><h4>ShopGrid - Q44</h4><p style="font-size:13px; margin-top:8px; line-height:1.5;">This is the landing page HTML skeleton with base desktop styles. Created by Nitanshi Singh for Q44.</p></div>
+        <div><h4>Structure</h4><ul><li>Header flex</li><li>Hero grid</li><li>Features grid</li></ul></div>
+        <div><h4>Styles</h4><ul><li>Desktop 1200px</li><li>No media query</li><li>Base only</li></ul></div>
+        <div><h4>Next Steps</h4><ul><li>Q45: Tablet</li><li>Q46: Mobile</li><li>Q47-Q50: Polish</li></ul></div>
+    </div>
+</footer>
+<div class="bottom">
+    &copy; 2025 Nitanshi Singh | Q44 - Push landing-page HTML skeleton and base desktop styles | BCA AI&CC | 1200px Container | No Responsive Yet
+</div>
+
+</body>
+</html>
