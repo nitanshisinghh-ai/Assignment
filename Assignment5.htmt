@@ -1,0 +1,34 @@
+Q5-Share the pushed GitHub repository link as proof of setup.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 5 - GitHub Setup Proof</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f5f5f5; text-align: center; }
+        .card { background: white; padding: 30px; border-radius: 10px; width: 70%; margin: auto; box-shadow: 0 0 10px gray; }
+        a { color: #007bff; font-weight: bold; font-size: 18px; word-break: break-all; }
+        .success { color: green; font-size: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Q5 - Share the pushed GitHub repository link as proof of setup</h1>
+        <p class="success">✔ Setup Completed Successfully</p>
+        
+        <h3>My GitHub Repository Link:</h3>
+        <a href="https://github.com/nitanshisinghh-ai/Assignment" target="_blank">
+            https://github.com/nitanshisinghh-ai/Assignment
+        </a>
+
+        <br><br>
+        <p><b>Student Name:</b> Nitanshi Singh</p>
+        <p><b>Course:</b> BCA AI&CC - 1st Sem</p>
+        <p><b>Proof:</b> Repository contains 5 assignments with 3+ meaningful commits</p>
+        
+        <h4>Commits Screenshot:</h4>
+        <p>Terminal me `git log --oneline` ka screenshot yahan add karna hai</p>
+    </div>
+
+</body>
+</html>
