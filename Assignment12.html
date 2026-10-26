@@ -1,0 +1,79 @@
+Q12-Ensure every image on the portfolio page has a meaningful alt attribute.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q12 - Portfolio with Meaningful Alt Attributes</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: Arial; margin: 0; }
+        header { background: #222; color: white; padding: 20px; text-align: center; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        section { padding: 40px 20px; }
+        img { max-width: 200px; border-radius: 10px; }
+        .profile { border-radius: 50%; border: 3px solid #222; }
+        footer { background: #222; color: white; text-align: center; padding: 15px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nitanshi Singh - Portfolio</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <!-- Meaningful alt for profile picture -->
+        <img src="https://via.placeholder.com/200" alt="Profile photo of Nitanshi Singh - BCA AI&CC Student" class="profile">
+        <p>Hello! I am Nitanshi Singh, BCA AI&CC 1st Semester Student.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <!-- Meaningful alt for about section illustration -->
+        <img src="https://via.placeholder.com/300x150?text=About+Me" alt="Illustration showing a student learning web development on laptop">
+        <p>I am passionate about Web Development and Cloud Computing.</p>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <!-- Meaningful alt for skills icons -->
+        <img src="https://via.placeholder.com/100?text=HTML" alt="HTML5 logo representing web structure skills">
+        <img src="https://via.placeholder.com/100?text=CSS" alt="CSS3 logo representing styling skills">
+        <img src="https://via.placeholder.com/100?text=Git" alt="Git logo representing version control skills">
+        <ul>
+            <li>HTML5 Semantic Tags</li>
+            <li>CSS Basics</li>
+            <li>Git & GitHub</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <!-- Meaningful alt for project screenshot -->
+        <img src="https://via.placeholder.com/400x200?text=GitHub+Repo" alt="Screenshot of GitHub repository showing assignment files from Q1 to Q12">
+        <p>Assignment Repository - All HTML assignments uploaded with proper commits.</p>
+        <a href="https://github.com/nitanshisinghh-ai/Assignment" target="_blank">View My GitHub</a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <!-- Meaningful alt for contact illustration -->
+        <img src="https://via.placeholder.com/150?text=Contact" alt="Contact icon with email and phone symbols for reaching Nitanshi Singh">
+        <p>Email: nitanshisinghh.ai@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Nitanshi Singh | Q12 - All images have meaningful alt attributes</p>
+    </footer>
+
+</body>
+</html>

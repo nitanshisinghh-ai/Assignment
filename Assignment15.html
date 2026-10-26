@@ -1,0 +1,106 @@
+Q15-Improve an earlier assignment page using correct semantic tags.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q15 - Improved Portfolio with Semantic Tags</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        header { background: #0d47a1; color: white; padding: 20px; text-align: center; }
+        nav { background: #222; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 10; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ffeb3b; }
+        main { max-width: 1000px; margin: auto; padding: 20px; }
+        section { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        h2 { color: #0d47a1; border-bottom: 3px solid #0d47a1; padding-bottom: 5px; margin-bottom: 15px; }
+        figure { text-align: center; margin: 15px 0; }
+        figure img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid #0d47a1; }
+        aside { background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        footer { background: #222; color: white; text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER - Defines top of page -->
+    <header>
+        <h1>Nitanshi Singh</h1>
+        <p>BCA AI&CC - 1st Sem | Web Developer Learner</p>
+    </header>
+
+    <!-- 2. NAV - For navigation links -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- 3. MAIN - Main content of page -->
+    <main>
+
+        <section id="home">
+            <h2>Home</h2>
+            <article>
+                <figure>
+                    <img src="https://via.placeholder.com/180" alt="Profile photo of Nitanshi Singh smiling, BCA AI and Cloud Computing student">
+                    <figcaption><strong>Nitanshi Singh - Portfolio Photo</strong></figcaption>
+                </figure>
+                <p>Welcome! This is my improved portfolio page. Earlier this was made with only divs, now it is improved with correct <strong>semantic tags</strong>.</p>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <article>
+                <p>I am a BCA student in AI & Cloud Computing. I have learned HTML, Git & GitHub, VS Code setup, and now I am improving my old pages with semantic HTML5.</p>
+            </article>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <article>
+                <ul>
+                    <li>BCA AI&CC - Pursuing (2025-2029)</li>
+                    <li>12th CBSE - 2024</li>
+                    <li>10th CBSE - 2022</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2>Skills Improved in This Module</h2>
+            <article>
+                <ol>
+                    <li>Non-Semantic vs Semantic - div vs header/nav/main/section</li>
+                    <li>Working Internal Navigation with id</li>
+                    <li>Meaningful alt attributes for all images</li>
+                    <li>Lists - ul, ol, dl, nested lists</li>
+                </ol>
+                <figure>
+                    <img src="https://via.placeholder.com/300x100?text=HTML5+Semantic" alt="HTML5 semantic tags diagram showing header nav main section article aside footer structure" style="border-radius: 10px; width: 300px; height: auto;">
+                    <figcaption>Fig: Semantic Structure Used</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Quick Note - What is Semantic Improvement?</h3>
+            <p><strong>Before (Non-semantic):</strong> &lt;div id="header"&gt;, &lt;div class="nav"&gt;, &lt;div class="footer"&gt;</p>
+            <p><strong>After (Semantic - Q15):</strong> &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;figure&gt;, &lt;footer&gt;</p>
+            <p>This helps SEO, Accessibility, and Screen Readers.</p>
+        </aside>
+
+    </main>
+
+    <!-- 4. FOOTER - Bottom of page -->
+    <footer id="contact">
+        <h3>Contact</h3>
+        <p>Email: nitanshisinghh.ai@gmail.com | GitHub: github.com/nitanshisinghh-ai</p>
+        <p>&copy; 2025 Nitanshi Singh | Q15 - Improved Page Using Correct Semantic Tags - DONE</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+Q14-Improve an earlier assignment page using correct semantic tags.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q14 - Improved College/Course Page with Semantic Tags</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; }
+        header { background: #1a237e; color: white; padding: 20px; text-align: center; }
+        nav { background: #333; padding: 10px; text-align: center; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        main { display: flex; padding: 20px; gap: 20px; }
+        .content { flex: 3; }
+        aside { flex: 1; background: #f5f5f5; padding: 15px; border-radius: 8px; }
+        section { margin-bottom: 25px; background: #fafafa; padding: 15px; border-radius: 8px; border-left: 5px solid #1a237e; }
+        footer { background: #222; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+        figure img { max-width: 100%; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My College & My Course - Semantic Version</h1>
+        <p>Nitanshi Singh | BCA AI&CC - 1st Semester</p>
+    </header>
+
+    <nav>
+        <a href="#college">My College</a>
+        <a href="#course">My Course</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#about-course">About Terms</a>
+    </nav>
+
+    <main>
+        <div class="content">
+            
+            <section id="college">
+                <h2>My College Details</h2>
+                <article>
+                    <ul>
+                        <li><strong>College Name:</strong> [Your College Name]</li>
+                        <li><strong>University:</strong> [Your University]</li>
+                        <li><strong>Location:</strong> Lucknow, UP</li>
+                    </ul>
+                    <h3>Facilities</h3>
+                    <ol>
+                        <li>Advanced Computer Labs</li>
+                        <li>Central Library</li>
+                        <li>WiFi Enabled Campus</li>
+                        <li>Sports & Canteen</li>
+                    </ol>
+                </article>
+            </section>
+
+            <section id="course">
+                <h2>My Course - BCA AI&CC</h2>
+                <article>
+                    <ol>
+                        <li><strong>Full Form:</strong> Bachelor of Computer Applications in AI & Cloud Computing</li>
+                        <li><strong>Duration:</strong> 3 Years (6 Semesters)</li>
+                        <li><strong>Current:</strong> 1st Semester (2025-26)</li>
+                    </ol>
+                </article>
+            </section>
+
+            <section id="subjects">
+                <h2>Subjects in 1st Sem (Using Nested Lists)</h2>
+                <article>
+                    <ul>
+                        <li>Core Subjects
+                            <ul>
+                                <li>HTML & Web Designing</li>
+                                <li>Programming in C</li>
+                                <li>Fundamentals of AI</li>
+                            </ul>
+                        </li>
+                        <li>Cloud & Lab
+                            <ul>
+                                <li>AWS Cloud Basics</li>
+                                <li>Git & GitHub Lab</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
+            <section id="about-course">
+                <h2>Course Terms - Description List</h2>
+                <article>
+                    <dl>
+                        <dt><strong>BCA</strong></dt>
+                        <dd>A 3-year degree focused on computer applications and software development.</dd>
+                        <dt><strong>AI</strong></dt>
+                        <dd>Artificial Intelligence - Making machines think like humans.</dd>
+                        <dt><strong>CC</strong></dt>
+                        <dd>Cloud Computing - Services like storage and servers over the Internet.</dd>
+                    </dl>
+                </article>
+            </section>
+
+        </div>
+
+        <aside>
+            <h3>Quick Info</h3>
+            <figure>
+                <img src="https://via.placeholder.com/200?text=My+College" alt="Illustration of college campus building for BCA students">
+                <figcaption>Fig: My College Campus</figcaption>
+            </figure>
+            <p><strong>Student:</strong> Nitanshi Singh</p>
+            <p><strong>Email:</strong> nitanshisinghh.ai@gmail.com</p>
+            <p><strong>GitHub:</strong> github.com/nitanshisinghh-ai</p>
+            <hr>
+            <p><em>This page is improved version of Q13 using semantic tags.</em></p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nitanshi Singh | Q14 - Improved Earlier Page Using Semantic Tags - Done</p>
+        <p>Semantic tags used: header, nav, main, section, article, aside, figure, figcaption, footer</p>
+    </footer>
+
+</body>
+</html>
